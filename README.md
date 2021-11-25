@@ -4,10 +4,11 @@
 ---
 
 Definition of Done:
-- pitää olla
-- tehty nämä
-- että on valmis
-- kaikkien mielestä
+- pylintin 10/10 mukaisesti kirjoitettu
+- yksikkötestit ominaisuudelle tehty
+- GitHub Actionit menevät läpi
+- toimii user storyn sanallisen kuvauksen mukaisesti selaimessa Herokun kautta
+- testikattavuus 80 % - käyttöliittymää ei lasketa mukaan
 
 ---
 
