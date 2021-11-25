@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="article">
+    <form action="/add" method="POST">
+        <p>Lisää uusi...</p>
+        <select name="type">
+            <option value="" disabled selected>Valitse</option>
+            <option value="article">Artikkeli</option>
+        </select>
+        <input type="submit" value="Hae">
+    </form> 
+</div>
+{% endblock %}

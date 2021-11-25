@@ -1,0 +1,46 @@
+body {
+    background-color:lightsteelblue;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 25px 50px 25px 50px;
+    letter-spacing: 3px;
+}
+
+h2 {
+    color:gray;
+    letter-spacing: 3px;
+}
+
+#otsikko {
+    color: rgb(255, 255, 255);
+    letter-spacing: 7px;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.browse {
+    text-align: left; 
+    padding-left: 10px;
+    padding: 30px;
+    margin: auto;
+    width: 50%;
+    background-color: white;
+    color: black;
+    border-radius: 25px
+}
+
+.article {
+    padding: 30px;
+    text-align: left; 
+    padding: 20px 30px 20px 30px;
+    margin: auto;
+    width: 50%;
+    background-color: white;
+    color: black; 
+    border-radius: 25px
+}

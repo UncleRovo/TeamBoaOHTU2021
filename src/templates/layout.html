@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lukuvinkkikirjasto</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    </head>
+    <body>
+        <div class="header">
+            <h1><a href="/" id="otsikko">Lukuvinkkikirjasto</a></h1>            
+        </div>
+        <br>
+        {% block content %}
+        {% endblock %}
+        <br>
+    </body>
+</html>
