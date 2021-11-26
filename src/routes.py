@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template, request
+import articles
 
 @app.route("/")
 def index():
@@ -7,7 +8,8 @@ def index():
 
 @app.route("/browse")
 def browse():
-    return render_template("browse.html")
+    article_list = articles.get_all()
+    return render_template("browse.html", articles=article_list)
 
 @app.route("/new")
 def new():

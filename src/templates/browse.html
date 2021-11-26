@@ -3,6 +3,31 @@
     <div class="browse">
         <h2>Tallennetut lukuvinkit</h2>
         <hr>
-        <p>(Vinkit tulevat tänne)</p>
+        {% if articles %}
+        <h2>artikkelit</h2>
+            <table>
+                <tr>
+                    <th>artikkeli</th>
+                    <th>kirjoittaja</th>
+                </tr>
+            {% for article in articles %}
+                <tr>
+                    <td>
+                        <a class="tablelink "href={{ article.url }} alt={{ article.url }}>{{ article.title }}</a>
+                    </td>
+                    <td>
+                        {{ article.author }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% else %}
+            <p><b>Yhtään artikkelia ei löytynyt. <span>
+                <!-- Ylikirjoitin vähän noita linkkien tyylejä, jotta ilmoitus mahtuu yhdelle riville -->
+                <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/new">Lisää vinkki</a></span> tai siirry <span>
+                <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/">etusivulle.</a>
+                </span>
+            </b></p>
+        {% endif %}
     </div>
 {% endblock %}
