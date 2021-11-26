@@ -10,6 +10,30 @@ a {
     letter-spacing: 3px;
 }
 
+table {
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    width: 50%;
+    padding: 10px 50px 10px 50px;
+    border-bottom: 1px solid lightgray;
+}
+
+a.tablelink {
+    text-decoration: none;
+    color: rgb(0, 0, 100);
+    padding: 10px 10px 10px 10px;
+    letter-spacing: 3px; 
+    transition: letter-spacing .5s, color .5s;
+}
+
+a.tablelink:hover {
+    letter-spacing: 5px;
+    color: rgb(0, 0, 150)
+}
+
 h2 {
     color:gray;
     letter-spacing: 3px;
