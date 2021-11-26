@@ -1,12 +1,16 @@
+import getpass
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+
+# For testing purposes. getting the username is automated. 
+# Eliminates having to write your own username into app.config[...] 
+# When .env is supported remove import getpass as well. 
+
 # Defines address for db and creates db-object that can execute sql-commands
-# Change the {user} to your username
-# For more info: https://hy-tsoha.github.io/materiaali/osa-2/#postgresql-tulkki
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///user"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql:///{getpass.getuser()}"
 db = SQLAlchemy(app)
 
 
