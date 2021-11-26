@@ -3,7 +3,7 @@ from collections import namedtuple
 
 def get_all():
     # Laitoin funktion palauttamaan normaalin kyselyn tuloksen väliaikaisratkaisun sijaan :) -t. Juhana
-    sql = 'SELECT * FROM articles'
+    sql = 'SELECT * FROM article'
     result = db.session.execute(sql)
     articles = result.fetchall()
     return articles
