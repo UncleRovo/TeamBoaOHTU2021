@@ -21,7 +21,11 @@ INSERT INTO articles (
   ) VALUES (
     'How to brew a cup of coffee', 
     'James B. Rew', 
-    'http://www.google.com'
+    'https://www.google.com'
+  ), (
+    'Helsingin kirjasto', 
+    'Helsinki', 
+    'https://www.helmet.fi/fi-FI'
   )
 
 

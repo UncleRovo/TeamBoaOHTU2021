@@ -11,6 +11,7 @@
                     <th>kirjoittaja</th>
                 </tr>
             {% for article in articles %}
+            <!-- TODO: Pitkät titlet eivät skaalaudu hyvin tällä hetkellä -->
                 <tr>
                     <td>
                         <a class="tablelink "href={{ article.url }} alt={{ article.url }}>{{ article.title }}</a>
