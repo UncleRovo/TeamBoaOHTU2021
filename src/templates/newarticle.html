@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
 {% block content%}
+<form action="/newarticle" method="POST">
     <div class="article">
-        <p>URL</p>
-        <input type="text" name="url" size="30">
         <p>Otsikko</p>
         <input type="text" name="title" size="30">
         <p>Tekijä</p>
-        <input type="text" name="creator" size="30">
+        <input type="text" name="author" size="30">
+        <p>URL</p>
+        <input type="text" name="url" size="30">
         <br>
-        <input type="submit" value="Lisää">
+        <input type="submit" name=button value="Lisää">
     </div>
+</form>
 {% endblock %}
