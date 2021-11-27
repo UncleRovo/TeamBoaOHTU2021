@@ -7,5 +7,7 @@ ${BROWSER}  chrome
 ${DELAY}  0.5 seconds
 ${HOME URL}  http://${SERVER}
 ${BROWSE URL}  http://${SERVER}/browse
-${NEW URL}  http://${SERVER}/NEW
+${NEW URL}  http://${SERVER}/new
 ${ADD URL}  http://${SERVER}/add
+
+#todo
