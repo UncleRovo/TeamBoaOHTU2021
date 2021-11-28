@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
-from articles import Articles
+from .dir import Articles
 
 @app.route("/")
 def index():
