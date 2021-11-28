@@ -14,5 +14,5 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql:///{getpass.getuser()}"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False #unittestejä varten (ei tule warning-messagea). Kommentin voi poistaa myöh.
 db = SQLAlchemy(app)
 
-
-from routes import routes
+# tämä import aiheuttaa Herokussa virheen, toistaiseksi piilossa
+# from routes import routes
