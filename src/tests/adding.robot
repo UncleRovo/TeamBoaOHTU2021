@@ -4,16 +4,16 @@ Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 
 *** Test Cases ***
-Click Add Link   #ADD-sivu merged with new_choose_type
+Click Add Link
     Go To Home Page
     Click Link  Lisää uusi vinkki
-    New Page Should Be Open   #HUOM! NEW MUUTETTU NEW_CHOOSE_TYPE
+    New Choose Type Page Should Be Open
 
-Add Article   #ADD-sivu merged with new_choose_type
-    Go To Add Page   #ADD-sivu merged with new_choose_type
+Add Article
+    Go To New Choose Type Page
     Set Type  article
     Click Button  Hae
-    Add Page Should Be Open   #ADD-sivu merged with new_choose_type
+    Add Article Page Should Be Open
     Set Title  Test title
     Set Author  Test author
     Set URL  www.google.fi
