@@ -22,5 +22,14 @@ Browse Page Should Be Open
 New Page Should Be Open
     Page Should Contain  Lisää uusi...
 
+Add Page Should Be Open
+    Page Should Contain  Otsikko
+
 Go To Home Page
     Go To  ${HOME URL}
+
+Go To Browse Page
+    Go To  ${BROWSE URL}
+
+Go To Add Page
+    Go To  ${ADD URL}
