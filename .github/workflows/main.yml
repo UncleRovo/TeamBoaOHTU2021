@@ -32,6 +32,8 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
+      - name: Run postgresql
+        run: sudo -u postgres psql
       - name: Initialize schema
         run: psql < schema.sql
       - name: Run tests
