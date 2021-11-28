@@ -564,8 +564,8 @@ h11 = ">=0.9.0,<1"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "3.8.1"
-content-hash = "4b5c30b9469f01390a92dbd804c74cca7ee49de0442540d891653a16251ed732"
+python-versions = "3.8.12"
+content-hash = "cec8f5cabf2a7b800e357a9de8f5fc240c20517b9f88fff29571d5bebc58a30c"
 
 [metadata.files]
 astroid = [
