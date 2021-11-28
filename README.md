@@ -14,4 +14,4 @@ Definition of Done:
 
 ---
 
-Linkki nettisivulle
+[Klikkaa tästä päästäksesi käyttämään sovellusta](https://lukuvinkki-boa.herokuapp.com/)
