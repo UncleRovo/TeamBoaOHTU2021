@@ -24,14 +24,14 @@ th, td {
 a.tablelink {
     text-decoration: none;
     color: rgb(0, 0, 100);
-    padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 0px;
     letter-spacing: 3px; 
     transition: letter-spacing .5s, color .5s;
 }
 
 a.tablelink:hover {
-    letter-spacing: 5px;
-    color: rgb(0, 0, 150)
+    letter-spacing: 4px;
+    color: rgb(0, 0, 200)
 }
 
 h2 {
