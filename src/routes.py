@@ -11,22 +11,23 @@ def browse():
     article_list = articles.get_all()
     return render_template("browse.html", articles=article_list)
 
-@app.route("/new") ##tarvitseeko tätä? tiedostonimi on new.html,reitti on /add > tulee selkeyttää.
-def new():
-    return render_template("new.html")
+@app.route("/new_choose_type", methods=['GET', 'POST'])
+def new_choose_type():
+    if request.method == "GET":
+        return render_template("new_choose_type.html")
+    if request.method == "POST":
+        type = request.form.get("type")
+        if type == "article":
+            return redirect("/new_article")
+        else:
+            return render_template("new_choose_type.html")
 
-@app.route("/add", methods=['GET', 'POST']) #pitäisikö täm äsiis olla /new?
-def add():
-    type = request.form.get("type")
-    if type == "article":
-        return render_template("newarticle.html")
-    else:
-        return render_template("new.html")
+#"/add" poistettu, liitetty "new_choose_typeen", joka ennen oli nimellä "new"
 
-@app.route("/newarticle", methods=['GET', 'POST'])
+@app.route("/new_article", methods=['GET', 'POST'])
 def new_article():
     if request.method == "GET":
-        return render_template("newarticle.html")
+        return render_template("new_article.html")
     if request.method == "POST":
         article_title = request.form["title"] #Add conditions later? Cannot be empty etc.
         article_author = request.form["author"]
@@ -34,4 +35,4 @@ def new_article():
         if articles.add_new_article(article_title, article_author, article_url):
             return redirect("/")
         else: # error-sivu (?) lisättävä myöhemmin
-            return redirect("new_article")
+            return redirect("/new_article")
