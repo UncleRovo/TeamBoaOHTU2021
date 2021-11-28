@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
-from articles import Articles
+import articles
 
 @app.route("/")
 def index():
@@ -8,7 +8,6 @@ def index():
 
 @app.route("/browse")
 def browse():
-    articles = Articles()
     article_list = articles.get_all()
     return render_template("browse.html", articles=article_list)
 
