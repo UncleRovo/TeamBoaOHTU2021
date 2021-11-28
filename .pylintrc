@@ -44,6 +44,11 @@ suggestion-mode=yes
 # active Python interpreter and may run arbitrary code.
 unsafe-load-any-extension=no
 
+# Will disable missing docstring warnings
+disable=C0114,
+        C0115,
+        C0116
+
 
 [MESSAGES CONTROL]
 
@@ -297,6 +302,7 @@ single-line-if-stmt=no
 # generate a warning on implicit string concatenation in sequences defined over
 # several lines.
 check-str-concat-over-line-jumps=no
+check-quote-consistency=True
 
 
 [MISCELLANEOUS]
