@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run postgresql
-        run: sudo -u postgres psql
+        run: pg_ctl start -l logfile
       - name: Initialize schema
         run: psql < schema.sql
       - name: Run tests
