@@ -32,6 +32,8 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
+      - name: Install psycopg2
+        run: sudo apt-get install libpq-dev
       - name: Run postgresql
         run: pg_ctl start -l logfile
       - name: Initialize schema
