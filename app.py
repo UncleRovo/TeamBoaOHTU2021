@@ -15,4 +15,4 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False #unittestejä varten (ei tu
 db = SQLAlchemy(app)
 
 
-from src import routes
+from routes import routes
