@@ -1,4 +1,6 @@
 # TeamBoaOHTU2021
+[![codecov](https://codecov.io/gh/UncleRovo/TeamBoaOHTU2021/branch/main/graph/badge.svg?token=RVVXELLER4)](https://codecov.io/gh/UncleRovo/TeamBoaOHTU2021)
+
 [Backlog (Team use)](https://helsinkifi-my.sharepoint.com/:x:/g/personal/karhelmi_ad_helsinki_fi/EUyjfZObbRtEktjglZIfjqkBznpw83N5DPR699B00N6RFQ?e=fe2MUZ)
 
 [Product Backlog and Burndown Chart](https://helsinkifi-my.sharepoint.com/:x:/g/personal/karhelmi_ad_helsinki_fi/EUyjfZObbRtEktjglZIfjqkB4lAZh1uDpnCF3pvPSApGeQ?e=XD0BRH) (public)
