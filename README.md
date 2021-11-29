@@ -1,4 +1,7 @@
 # TeamBoaOHTU2021
+[Klikkaa tästä päästäksesi käyttämään sovellusta](https://lukuvinkki-boa.herokuapp.com/)
+
+---
 
 ![GitHub Actions](https://github.com/UncleRovo/TeamBoaOHTU2021/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/UncleRovo/TeamBoaOHTU2021/branch/main/graph/badge.svg?token=RVVXELLER4)](https://codecov.io/gh/UncleRovo/TeamBoaOHTU2021)
@@ -17,5 +20,3 @@ Definition of Done:
 - testikattavuus 80 % - käyttöliittymää ei lasketa mukaan
 
 ---
-
-[Klikkaa tästä päästäksesi käyttämään sovellusta](https://lukuvinkki-boa.herokuapp.com/)
