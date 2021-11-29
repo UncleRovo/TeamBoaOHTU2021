@@ -13,7 +13,10 @@ app = Flask(__name__)
 # When .env is supported remove import getpass as well. 
 
 uri = os.getenv("DATABASE_URL")  # or other relevant config var
-if uri.startswith("postgres://"):
+if uri == None:
+    # Defines address for db and creates db-object that can execute sql-commands
+    uri = f"postgresql:///{getpass.getuser()}"
+elif uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 # rest of connection code using the connection string `uri`
 
