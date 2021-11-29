@@ -1,6 +1,9 @@
 import getpass
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
+import re
+
 
 app = Flask(__name__)
 
@@ -9,8 +12,13 @@ app = Flask(__name__)
 # Eliminates having to write your own username into app.config[...] 
 # When .env is supported remove import getpass as well. 
 
+uri = os.getenv("DATABASE_URL")  # or other relevant config var
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+# rest of connection code using the connection string `uri`
+
 # Defines address for db and creates db-object that can execute sql-commands
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql:///{getpass.getuser()}"
+app.config["SQLALCHEMY_DATABASE_URI"] = uri
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False #unittestejä varten (ei tule warning-messagea). Kommentin voi poistaa myöh.
 db = SQLAlchemy(app)
 
