@@ -1,5 +1,4 @@
 DROP TABLE article;
-DROP TABLE blog;
 DROP TABLE users;
 
 CREATE TABLE users (
