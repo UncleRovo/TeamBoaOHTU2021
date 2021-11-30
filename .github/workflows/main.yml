@@ -9,18 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: github_actions
-        ports:
-          - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - uses: actions/checkout@v2
@@ -32,15 +20,8 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
-      - name: Install psycopg2
-        run: sudo apt-get install libpq-dev
-      - name: Run postgresql
-        run: pg_ctl start -l logfile
-      - name: Initialize schema
-        run: psql < schema.sql
-      - name: Run tests
-        run: poetry run coverage run --branch -m pytest
-      - name: Coverage report
-        run: poetry run coverage xml
-      - name: Coverage report to Codecov
-        run: bash <(curl -s https://codecov.io/bash)
+      - name: Install pylint
+        run: pip install pylint
+      - name: Analysing the code with pylint
+        run: |
+         find . -name '*.py' -exec pylint {} \;
