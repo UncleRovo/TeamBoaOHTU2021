@@ -14,8 +14,8 @@
 
 Definition of Done:
 - pylintin 10/10 mukaisesti kirjoitettu
-- yksikkötestit ominaisuudelle tehty
-- GitHub Actionit menevät läpi
+- yksikkötestit ominaisuudelle tehty ja ne menevät paikallisesti läpi
+- GitHub Actionit menevät läpi (ehkä toisesta sprintistä lähtien?)
 - toimii user storyn sanallisen kuvauksen mukaisesti selaimessa Herokun kautta
 - testikattavuus 80 % - käyttöliittymää ei lasketa mukaan
 
