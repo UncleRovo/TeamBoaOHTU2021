@@ -13,10 +13,10 @@
 ---
 
 Definition of Done:
-- pylintin 10/10 mukaisesti kirjoitettu
+- pylintin 10/10 mukaisesti kirjoitettu Sprintistä 2 eteenpäin
 - yksikkötestit ominaisuudelle tehty ja ne menevät paikallisesti läpi
 - GitHub Actionit menevät läpi (ehkä toisesta sprintistä lähtien?)
 - toimii user storyn sanallisen kuvauksen mukaisesti selaimessa Herokun kautta
-- testikattavuus 80 % - käyttöliittymää ei lasketa mukaan
+- testikattavuus 80 % - käyttöliittymää ei lasketa mukaan. Sprintistä 2 eteenpäin
 
 ---
