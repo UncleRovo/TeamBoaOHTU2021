@@ -1,13 +1,44 @@
 DROP TABLE articles;
+DROP TABLE users;
 
-CREATE TABLE articles (
+CREATE TABLE user (
+  id SERIAL PRIMARY KEY,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT
+);
+
+CREATE TABLE blog (
   id SERIAL PRIMARY KEY, 
   title TEXT, 
   author TEXT, 
-  url TEXT
+  url TEXT,
+  visible INTEGER DEFAULT 1
 );
 
+CREATE TABLE book (
+  id SERIAL PRIMARY KEY, 
+  author TEXT, 
+  title TEXT, 
+  isbn TEXT,
+  visible INTEGER DEFAULT 1
+);
 
+CREATE TABLE article (
+  id SERIAL PRIMARY KEY, 
+  author TEXT, 
+  title TEXT, 
+  doi TEXT,
+  url TEXT,
+  visible INTEGER DEFAULT 1
+);
+
+CREATE TABLE video (
+  id SERIAL PRIMARY KEY, 
+  channel TEXT, 
+  title TEXT, 
+  url TEXT,
+  visible INTEGER DEFAULT 1
+);
 
 
 
