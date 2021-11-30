@@ -2,4 +2,11 @@
 {% block content%}
     <a href="/browse" style="background-color: aliceblue; border-radius: 25px;">Selaa vinkkejä</a>
     <a href="/new_choose_type" style="background-color: aliceblue; border-radius: 25px;">Lisää uusi vinkki</a>
+    {% if session.username %}
+    <a href="/logout" style="background-color: aliceblue; border-radius: 25px;">Kirjaudu ulos</a>
+    {% else %}
+    <a href="/register" style="background-color: aliceblue; border-radius: 25px;">Rekisteröi uusi käyttäjä</a>
+    <a href="/login" style="background-color: aliceblue; border-radius: 25px;">Kirjaudu sisään</a>
+
+    {% endif %}
 {% endblock%}

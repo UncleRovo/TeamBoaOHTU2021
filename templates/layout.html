@@ -9,6 +9,11 @@
         <div class="header">
             <h1><a href="/" id="otsikko">Lukuvinkkikirjasto</a></h1>            
         </div>
+        {% if session.username %}
+        <div>
+            <p>Olet kirjautunut käyttäjätunnuksella: {{ session.username }}</p>
+        </div>
+        {% endif %}
         <br>
         {% block content %}
         {% endblock %}

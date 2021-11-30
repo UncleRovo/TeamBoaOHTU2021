@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
-import articles, blogs
+import articles, blogs, user
 
 @app.route("/")
 def index():
@@ -59,3 +59,36 @@ def new_blog():
             return redirect("/")
         else:
             return redirect("/new_blog")
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    if request.method == "GET":
+        return render_template("register.html")
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        if user.register(username, password):
+            return redirect("/")
+        else: 
+            # At the moment, there is no notification if the username is already taken. 
+            # User is just redirected back to the registration page
+            return render_template("/register.html")
+        
+@app.route('/logout')
+def logout():
+    user.logout()
+    return redirect('/')
+
+@app.route('/login', methods=['get','post'])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        if user.login(username, password):
+            return redirect("/")
+        else:
+            # Same placeholder as in /register when logging in / registering fails.
+            # Needs a notification still
+            return render_template("login.html")

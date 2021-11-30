@@ -60,6 +60,9 @@ INSERT INTO article (
   )
 
 
-
-
-
+INSERT INTO users (
+  username,
+  password,
+  ) VALUES (
+    'testaaja',
+    'salasana')

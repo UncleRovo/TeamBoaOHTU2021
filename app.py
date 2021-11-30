@@ -2,11 +2,12 @@ import getpass
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
+from os import getenv
 import re
 
 
 app = Flask(__name__)
-
+app.secret_key = getenv("SECRET_KEY")
 
 # For testing purposes. getting the username is automated. 
 # Eliminates having to write your own username into app.config[...] 
