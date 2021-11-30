@@ -1,7 +1,7 @@
 DROP TABLE article;
-DROP TABLE user;
+DROP TABLE users;
 
-CREATE TABLE user (
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT UNIQUE NOT NULL,
   password TEXT
