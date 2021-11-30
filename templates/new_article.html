@@ -8,11 +8,14 @@
         <input type="text" name="title" size="30">
         <p>Tekijä</p>
         <input type="text" name="author" size="30">
-        <p>URL</p>
-        <input type="text" name="url" size="30">
+        <br><br>
+        <input type="radio" name="resource_id_type" value="doi" checked> DOI</radio>
+        <input type="radio" name="resource_id_type" value="url"> URL
+        <br><br>
+        <input type="text" name="resource_id" size="30">
         <br>
         <p>
         <input type="submit" name=button value="Lisää">
     </div>
 </form>
-{% endblock %}
+{% endblock %} 

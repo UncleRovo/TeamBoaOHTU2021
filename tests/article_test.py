@@ -6,5 +6,5 @@ class TestArticle(unittest.TestCase):
         pass
 
     def test_article_added_to_database(self):
-        success = articles.add_new_article("ABC", "Virtanen", "www.abc.fi")
+        success = articles.add_new_article("ABC", "Virtanen", "", "www.abc.fi")
         self.assertEqual(success, True)

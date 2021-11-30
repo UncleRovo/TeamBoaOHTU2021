@@ -3,6 +3,33 @@
     <div class="browse">
         <h2>Tallennetut lukuvinkit</h2>
         <hr>
+        <p>
+            <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/new_choose_type">Lisää vinkki</a></span>   <span>
+            <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/">etusivu</a>
+            </span>
+        </b></p>
+
+
+        {% if blogs %}
+        <h2>blogit</h2>
+        <table>
+            <tr>
+                <th>otsikko</th>
+                <th>kirjoittaja</th>
+            </tr>
+        {% for blog in blogs %}
+            <tr>
+                <td>
+                    <a class="tablelink "href={{ blog.url }} alt={{ blog.url }}>{{ blog.title }}</a>
+                </td>
+                <td>
+                    {{ blog.author }}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        {% endif %}
+
         {% if articles %}
         <h2>artikkelit</h2>
             <table>
@@ -11,10 +38,14 @@
                     <th>kirjoittaja</th>
                 </tr>
             {% for article in articles %}
-            <!-- TODO: Pitkät titlet eivät skaalaudu hyvin tällä hetkellä -->
                 <tr>
                     <td>
+                        {% if article.doi %}
+                        {% set url = "https://doi.org/" + article.doi %}
+                        <a class="tablelink "href={{ url }} alt={{ article.doi }} >{{ article.title }}</a>
+                        {% elif article.url %}
                         <a class="tablelink "href={{ article.url }} alt={{ article.url }}>{{ article.title }}</a>
+                        {% endif %}
                     </td>
                     <td>
                         {{ article.author }}
@@ -22,13 +53,6 @@
                 </tr>
             {% endfor %}
             </table>
-        {% else %}
-            <p><b>Yhtään artikkelia ei löytynyt. <span>
-                <!-- Ylikirjoitin vähän noita linkkien tyylejä, jotta ilmoitus mahtuu yhdelle riville -->
-                <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/new">Lisää vinkki</a></span> tai siirry <span>
-                <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/">etusivulle.</a>
-                </span>
-            </b></p>
         {% endif %}
     </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
-import articles
+import articles, blogs
 
 @app.route("/")
 def index():
@@ -8,8 +8,8 @@ def index():
 
 @app.route("/browse")
 def browse():
-    article_list = articles.get_all()
-    return render_template("browse.html", articles=article_list)
+    return render_template("browse.html", blogs=blogs.get_all(),
+                                          articles=articles.get_all())
 
 @app.route("/new_choose_type", methods=['GET', 'POST'])
 def new_choose_type():
@@ -19,6 +19,8 @@ def new_choose_type():
         type = request.form.get("type")
         if type == "article":
             return redirect("/new_article")
+        elif type == "blog":
+            return redirect("/new_blog")
         else:
             return render_template("new_choose_type.html")
 
@@ -29,10 +31,31 @@ def new_article():
     if request.method == "GET":
         return render_template("new_article.html")
     if request.method == "POST":
-        article_title = request.form["title"] #Add conditions later? Cannot be empty etc.
-        article_author = request.form["author"]
-        article_url = request.form["url"]
-        if articles.add_new_article(article_title, article_author, article_url):
+        title = request.form["title"]
+        author = request.form["author"]
+        resource_id_type = request.form["resource_id_type"]
+        resource_id = request.form["resource_id"]
+        if resource_id_type == "doi":
+            doi = resource_id
+            url = ""
+        else:
+            doi = ""
+            url = resource_id
+
+        if articles.add_new_article(title, author, doi, url):
             return redirect("/")
         else: # error-sivu (?) lisättävä myöhemmin
             return redirect("/new_article")
+
+@app.route("/new_blog", methods=['GET', 'POST'])
+def new_blog():
+    if request.method == "GET":
+        return render_template("new_blog.html")
+    if request.method == "POST":
+        title = request.form["title"]
+        author = request.form["author"]
+        url = request.form["url"]
+        if blogs.add_new_blog(title, author, url):
+            return redirect("/")
+        else:
+            return redirect("/new_blog")
