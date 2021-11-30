@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content%}
+<form action="/new_blog" method="POST">
+    <div class="article">
+        Lisää uusi <b>blogi</b> lukuvinkkikirjastoon.
+        <p>
+        <p>Otsikko</p>
+        <input type="text" name="title" size="30">
+        <p>Tekijä</p>
+        <input type="text" name="author" size="30">
+        <p>URL</p>
+        <input type="text" name="url" size="30">
+        <br>
+        <p>
+        <input type="submit" name=button value="Lisää">
+    </div>
+</form>
+{% endblock %}
