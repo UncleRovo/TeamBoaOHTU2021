@@ -9,3 +9,5 @@ When Postgresql-server is running on your machine ([link to hy-tsoha's psql repo
 
 Table articles
 There is autoincrementing primary key called id that can be used later to link articles to users. 
+
+Naming convention for tables is singular. Ex. CREATE TABLE article(). 
