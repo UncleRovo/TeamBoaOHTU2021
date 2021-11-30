@@ -1,5 +1,5 @@
-DROP TABLE articles;
-DROP TABLE users;
+DROP TABLE article;
+DROP TABLE user;
 
 CREATE TABLE user (
   id SERIAL PRIMARY KEY,
@@ -45,7 +45,7 @@ CREATE TABLE video (
 
 
 -- Some inserts into db so that there is sample data
-INSERT INTO articles (
+INSERT INTO article (
   title, 
   author, 
   url
