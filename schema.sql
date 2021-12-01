@@ -57,12 +57,12 @@ INSERT INTO article (
     'Helsingin kirjasto', 
     'Helsinki', 
     'https://www.helmet.fi/fi-FI'
-  )
+  );
 
 
 INSERT INTO users (
   username,
-  password,
+  password
   ) VALUES (
     'testaaja',
-    'salasana')
+    'salasana');
