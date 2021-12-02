@@ -1,10 +1,28 @@
 {% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% if message %}
+Virhe: {{ message }}
+{% endif %}
+
 {% block content%}
 <form action="/login" method="POST">
-  <p>Käyttäjätunnus:<br>
-  <input type="text" name="username"></p>
-  <p>Salasana:<br>
-  <input type="password" name="password"></p>
-  <input type="submit" value="Kirjaudu">
+  Kirjaudu sisään
+  <div>
+    <label for="username">Käyttäjätunnus</label>
+    <input type="text" name="username" id="username" />
+  </div>
+
+  <div>
+    <label for="password">Salasana</label>
+    <input type="password" name="password" id="password" />
+  </div>
+
+  <button>
+    Kirjaudu
+  </button>
   </form>
 {% endblock%}

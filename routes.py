@@ -97,17 +97,14 @@ def register():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+
         if user.register(username, password):
-            return redirect("/")
-        else: 
-            # At the moment, there is no notification if the username is already taken. 
-            # User is just redirected back to the registration page
-            return render_template("/register.html")
-        
-@app.route('/logout')
-def logout():
-    user.logout()
-    return redirect('/')
+            if user.login(username, password):
+                # Had to add this for the unittests to work. 
+                # Logging test does not work atm.
+                return redirect("/")
+        else:
+            return render_template("/register.html", message='Rekisteröinti ei onnistunut')
 
 @app.route('/login', methods=['get','post'])
 def login():
@@ -119,6 +116,9 @@ def login():
         if user.login(username, password):
             return redirect("/")
         else:
-            # Same placeholder as in /register when logging in / registering fails.
-            # Needs a notification still
-            return render_template("login.html")
+            return render_template("login.html", message='Kirjautuminen ei onnistunut')
+
+@app.route('/logout')
+def logout():
+    user.logout()
+    return redirect('/')

@@ -85,10 +85,3 @@ INSERT INTO book (
    'The Lord of the Rings',
    '9780544003415'
   );
-
-INSERT INTO users (
-  username,
-  password
-  ) VALUES (
-    'testaaja',
-    'salasana');

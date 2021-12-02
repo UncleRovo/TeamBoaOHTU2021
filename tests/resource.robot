@@ -9,6 +9,7 @@ ${HOME URL}  http://${SERVER}
 ${BROWSE URL}  http://${SERVER}/browse
 ${NEW_CHOOSE_TYPE URL}  http://${SERVER}/new_choose_type
 ${ADD ARTICLE URL}  http://${SERVER}/new_article
+${REGISTER PAGE}  http://${SERVER}/register
 
 *** Keywords ***
 Open And Configure Browser
@@ -42,3 +43,6 @@ Go To Browse Page
 
 Go To New Choose Type Page 
     Go To  ${NEW_CHOOSE_TYPE URL}
+
+Go To Register Page
+    Go To  ${REGISTER PAGE}
