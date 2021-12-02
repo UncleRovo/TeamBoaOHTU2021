@@ -18,3 +18,7 @@ Browse Page Contains Original Videos
     Go To Browse Page
     Page Should Contain  Rufus
     Page Should Contain  Kings and Generals
+
+Browse Page Contains Original Book
+    Go To Browse Page
+    Page Should Contain  The Lord of the Rings

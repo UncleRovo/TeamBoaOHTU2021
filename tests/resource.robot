@@ -31,6 +31,9 @@ Add Video Page Should Be Open
 Add Blog Page Should Be Open
     Page Should Contain  Lisää uusi blogi
 
+Add Book Page Should Be Open
+    Page Should Contain  Lisää uusi kirja
+
 Go To Home Page
     Go To  ${HOME URL}
 

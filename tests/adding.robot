@@ -33,6 +33,19 @@ Add Video
     Go To Browse Page
     Page Should Contain  Test video
 
+Add Book
+    Go To New Choose Type Page 
+    Set Type  book
+    Click Button  Lisää
+    Add Book Page Should Be Open
+    Set Title  Test book
+    Set Author  Test author
+    Set Isbn  9780471397120
+    Click Button  Lisää
+    Go To Browse Page
+    Page Should Contain  Test book
+
+
 *** Keywords ***
 Set Type
     [Arguments]  ${type_of_new}
@@ -53,3 +66,7 @@ Set Channel
 Set URL
     [Arguments]  ${url}
     Input Text  url  ${url}
+
+Set Isbn
+    [Arguments]  ${isbn}
+    Input Text  isbn  ${isbn}
