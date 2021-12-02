@@ -25,6 +25,12 @@ New Choose Type Page Should Be Open
 Add Article Page Should Be Open
     Page Should Contain  Lisää uusi artikkeli
 
+Add Video Page Should Be Open
+    Page Should Contain  Lisää uusi video
+
+Add Blog Page Should Be Open
+    Page Should Contain  Lisää uusi blogi
+
 Go To Home Page
     Go To  ${HOME URL}
 

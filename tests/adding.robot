@@ -9,17 +9,29 @@ Click Add Link
     Click Link  Lisää uusi vinkki
     New Choose Type Page Should Be Open
 
-Add Article
+Add Blog
     Go To New Choose Type Page
-    Set Type  article
-    Click Button  Hae
-    Add Article Page Should Be Open
-    Set Title  Test title
+    Set Type  blog
+    Click Button  Lisää
+    Add Blog Page Should Be Open
+    Set Title  Test blog
     Set Author  Test author
-    Set URL  www.google.fi
+    Set URL  https://www.google.fi
     Click Button  Lisää
     Go To Browse Page
-    Page Should Contain  Test title
+    Page Should Contain  Test blog
+
+Add Video
+    Go To New Choose Type Page
+    Set Type  video
+    Click Button  Lisää
+    Add Video Page Should Be Open
+    Set Title  Test video
+    Set Channel  Test channel
+    Set URL  https://www.google.fi
+    Click Button  Lisää
+    Go To Browse Page
+    Page Should Contain  Test video
 
 *** Keywords ***
 Set Type
@@ -33,6 +45,10 @@ Set Title
 Set Author
     [Arguments]  ${author}
     Input Text  author  ${author}
+
+Set Channel
+    [Arguments]  ${channel}
+    Input Text  channel  ${channel}
 
 Set URL
     [Arguments]  ${url}
