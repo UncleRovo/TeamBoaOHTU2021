@@ -54,5 +54,25 @@
             {% endfor %}
             </table>
         {% endif %}
+
+        {% if videos %}
+        <h2>videot</h2>
+        <table>
+            <tr>
+                <th>otsikko</th>
+                <th>kanava</th>
+            </tr>
+        {% for video in videos %}
+            <tr>
+                <td>
+                    <a class="tablelink "href={{ video.url }} alt={{ video.url }}>{{ video.title }}</a>
+                </td>
+                <td>
+                    {{ video.channel }}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        {% endif %}
     </div>
 {% endblock %}

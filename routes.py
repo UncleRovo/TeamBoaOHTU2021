@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
-import articles, blogs, user
+import articles, blogs, user, videos
 
 @app.route("/")
 def index():
@@ -9,7 +9,8 @@ def index():
 @app.route("/browse")
 def browse():
     return render_template("browse.html", blogs=blogs.get_all(),
-                                          articles=articles.get_all())
+                                          articles=articles.get_all(),
+                                          videos=videos.get_all(),)
 
 @app.route("/new_choose_type", methods=['GET', 'POST'])
 def new_choose_type():
@@ -23,8 +24,6 @@ def new_choose_type():
             return redirect("/new_blog")
         else:
             return render_template("new_choose_type.html")
-
-#"/add" poistettu, liitetty "new_choose_typeen", joka ennen oli nimellä "new"
 
 @app.route("/new_article", methods=['GET', 'POST'])
 def new_article():

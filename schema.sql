@@ -1,5 +1,8 @@
 DROP TABLE article;
 DROP TABLE users;
+DROP TABLE video;
+DROP TABLE blog;
+DROP TABLE book;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -59,6 +62,19 @@ INSERT INTO article (
     'https://www.helmet.fi/fi-FI'
   );
 
+INSERT INTO video (
+  channel, 
+  title, 
+  url
+  ) VALUES (
+    'Kings and Generals', 
+    'How Caesar Won the Greast Roman Civil War',
+    'https://www.youtube.com/watch?v=o8F8IajtW9U'
+  ), (
+    'Rufus',
+    'Cute and Funny Cat Videos to Keep You Smiling',
+    'https://www.youtube.com/watch?v=tpiyEe_CqB4'
+  );
 
 INSERT INTO users (
   username,
