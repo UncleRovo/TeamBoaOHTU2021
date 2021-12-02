@@ -1,10 +1,10 @@
 from app import db
 
-#def add_new_blog(title, author, url):
- #   sql = 'INSERT INTO blog (title, author, url) VALUES (:title, :author, :url)'
-  #  db.session.execute(sql, {"title":title, "author":author, "url":url})
-   # db.session.commit()
-    #return True
+def add_new_video(title, channel, url):
+    sql = 'INSERT INTO video (title, channel, url) VALUES (:title, :channel, :url)'
+    db.session.execute(sql, {"title":title, "channel":channel, "url":url})
+    db.session.commit()
+    return True
 
 def get_all():
     sql = 'SELECT * FROM video WHERE visible=1'

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content%}
+<form action="/new_video" method="POST">
+    <div class="article">
+        Lisää uusi <b>video</b> lukuvinkkikirjastoon.
+        <p>
+        <p>Otsikko</p>
+        <input type="text" name="title" size="30">
+        <p>Kanava</p>
+        <input type="text" name="channel" size="30">
+        <p>URL</p>
+        <input type="text" name="url" size="30">
+        <br>
+        <p>
+        <input type="submit" name=button value="Lisää">
+    </div>
+</form>
+{% endblock %}

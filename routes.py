@@ -22,6 +22,8 @@ def new_choose_type():
             return redirect("/new_article")
         elif type == "blog":
             return redirect("/new_blog")
+        elif type == "video":
+            return redirect("/new_video")
         else:
             return render_template("new_choose_type.html")
 
@@ -58,6 +60,19 @@ def new_blog():
             return redirect("/")
         else:
             return redirect("/new_blog")
+
+@app.route("/new_video", methods=['GET', 'POST'])
+def new_video():
+    if request.method == "GET":
+        return render_template("new_video.html")
+    if request.method == "POST":
+        title = request.form["title"]
+        channel = request.form["channel"]
+        url = request.form["url"]
+        if videos.add_new_video(title, channel, url):
+            return redirect("/")
+        else:
+            return redirect("/new_video")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
