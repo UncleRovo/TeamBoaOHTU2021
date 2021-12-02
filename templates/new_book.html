@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content%}
+<form action="/new_book" method="POST">
+    <div class="book">
+        Lisää uusi <b>kirja</b> lukuvinkkikirjastoon.
+        <p>
+        <p>Otsikko</p>
+        <input type="text" name="title" size="30">
+        <p>Tekijä</p>
+        <input type="text" name="author" size="30">
+        <p>isbn</p>
+        <input type="text" name="isbn" size="30">
+        <br>
+        <p>
+        <input type="submit" name=button value="Lisää">
+    </div>
+</form>
+{% endblock %}
