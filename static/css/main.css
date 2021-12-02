@@ -68,3 +68,14 @@ h2 {
     color: black; 
     border-radius: 25px
 }
+
+.book {
+    padding: 30px;
+    text-align: left; 
+    padding: 20px 30px 20px 30px;
+    margin: auto;
+    width: 50%;
+    background-color: white;
+    color: black; 
+    border-radius: 25px
+}

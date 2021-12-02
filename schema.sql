@@ -76,6 +76,16 @@ INSERT INTO video (
     'https://www.youtube.com/watch?v=tpiyEe_CqB4'
   );
 
+INSERT INTO book (
+  author,
+  title,
+  isbn
+  ) VALUES (
+   'J.R.R. Tolkien',
+   'The Lord of the Rings',
+   '9780544003415'
+  );
+
 INSERT INTO users (
   username,
   password

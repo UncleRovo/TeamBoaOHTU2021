@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
-import articles, blogs, user, videos
+import articles, blogs, user, videos, books
 
 @app.route("/")
 def index():
@@ -10,7 +10,8 @@ def index():
 def browse():
     return render_template("browse.html", blogs=blogs.get_all(),
                                           articles=articles.get_all(),
-                                          videos=videos.get_all(),)
+                                          videos=videos.get_all(),
+                                          books=books.get_all())
 
 @app.route("/new_choose_type", methods=['GET', 'POST'])
 def new_choose_type():
@@ -24,6 +25,8 @@ def new_choose_type():
             return redirect("/new_blog")
         elif type == "video":
             return redirect("/new_video")
+        elif type == "book":
+            return redirect("/new_book")
         else:
             return render_template("new_choose_type.html")
 
@@ -73,6 +76,19 @@ def new_video():
             return redirect("/")
         else:
             return redirect("/new_video")
+
+@app.route("/new_book", methods=['GET', 'POST'])
+def new_book():
+    if request.method == "GET":
+        return render_template("new_book.html")
+    if request.method == "POST":
+        title = request.form["title"]
+        author = request.form["author"]
+        isbn = request.form["isbn"]
+        if books.add_new_book(title, author, isbn):
+            return redirect("/")
+        else:
+            return redirect("/new_book")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
