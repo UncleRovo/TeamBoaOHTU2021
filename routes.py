@@ -131,7 +131,12 @@ def hide_item():
     if request.method == "POST":
         item_type = request.form["item_type"]
         item_id = request.form["item_id"]
-        sql = "UPDATE " + item_type + " SET visible = 0 WHERE id = " + str(item_id)
-        db.session.execute(sql)
-        db.session.commit()
+        if (item_type == "blog"):
+            blogs.hide(item_id)
+        elif (item_type == "article"):
+            articles.hide(item_id)
+        elif (item_type == "video"):
+            videos.hide(item_id)
+        elif (item_type == "book"):
+            books.hide(item_id)
     return redirect('/browse')
