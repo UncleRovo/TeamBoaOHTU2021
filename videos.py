@@ -11,3 +11,9 @@ def get_all():
     result = db.session.execute(sql)
     videos = result.fetchall()
     return videos
+    
+def hide(item_id):
+    sql = "UPDATE video SET visible = 0 WHERE id=:item_id "
+    db.session.execute(sql, {"item_id":item_id})
+    db.session.commit()
+    return True

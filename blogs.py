@@ -11,3 +11,9 @@ def get_all():
     result = db.session.execute(sql)
     articles = result.fetchall()
     return articles
+    
+def hide(item_id):
+    sql = "UPDATE blog SET visible = 0 WHERE id=:item_id "
+    db.session.execute(sql, {"item_id":item_id})
+    db.session.commit()
+    return True
