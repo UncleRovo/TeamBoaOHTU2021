@@ -14,20 +14,21 @@ Virhe: {{ message }}
 
 <form action="/register" method="POST">
   Lisää uusi käyttäjä
-  <div>
-    <label for="username">Käyttäjätunnus</label>
-    <input type="text" name="username" id="username" />
+  <div class="article">
+    <div>
+      <label for="username">Käyttäjätunnus</label>
+      <input type="text" name="username" id="username" />
+    </div>
+
+    <div>
+      <label for="password">Salasana</label>
+      <input type="password" name="password" id="password" />
+    </div>
+
+    <button>
+      Rekisteröi
+    </button>
   </div>
-
-  <div>
-    <label for="password">Salasana</label>
-    <input type="password" name="password" id="password" />
-  </div>
-
-  <button>
-    Rekisteröi
-  </button>
-
 </form>
-</form>
+
 {% endblock%}

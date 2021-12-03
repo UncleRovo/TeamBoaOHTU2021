@@ -11,18 +11,20 @@ Virhe: {{ message }}
 {% block content%}
 <form action="/login" method="POST">
   Kirjaudu sisään
-  <div>
-    <label for="username">Käyttäjätunnus</label>
-    <input type="text" name="username" id="username" />
-  </div>
+  <div class="article">
+    <div>
+      <label for="username">Käyttäjätunnus</label>
+      <input type="text" name="username" id="username" />
+    </div>
 
-  <div>
-    <label for="password">Salasana</label>
-    <input type="password" name="password" id="password" />
-  </div>
+    <div>
+      <label for="password">Salasana</label>
+      <input type="password" name="password" id="password" />
+    </div>
 
-  <button>
-    Kirjaudu
-  </button>
-  </form>
+    <button>
+      Kirjaudu
+    </button>
+  </div>
+</form>
 {% endblock%}
