@@ -9,10 +9,15 @@ Click Browse Link
     Click Link  Selaa vinkkejä
     Browse Page Should Be Open
 
-#Browse Page Contains Original Blogs
-#    Go To Browse Page
-#    Page Should Contain  ##ADD e.g. author name for test cases
-#    Page Should Contain  ##ADD e.g. author name
+Browse Page Contains Original Articles
+    Go To Browse Page
+    Page Should Contain  James B. Rew
+    Page Should Contain  Helsingin kirjasto
+
+Browse Page Contains Original Blogs
+    Go To Browse Page
+    Page Should Contain  Building blogs
+    Page Should Contain  blogger
 
 Browse Page Contains Original Videos
     Go To Browse Page

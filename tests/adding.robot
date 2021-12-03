@@ -9,6 +9,18 @@ Click Add Link
     Click Link  Lisää uusi vinkki
     New Choose Type Page Should Be Open
 
+Add Article
+    Go To New Choose Type Page
+    Set Type  article
+    Click Button  Lisää
+    Add Article Page Should Be Open
+    Set Title  Art Icle
+    Set Author  A. Uthor
+    Set Doi  10.1010/10
+    Click Button  Lisää
+    Go To Browse Page
+    Page Should Contain  Art Icle
+
 Add Blog
     Go To New Choose Type Page
     Set Type  blog
@@ -70,3 +82,7 @@ Set URL
 Set Isbn
     [Arguments]  ${isbn}
     Input Text  isbn  ${isbn}
+
+Set Doi
+    [Arguments]  ${doi}
+    Input Text  resource_id  ${doi}
