@@ -62,6 +62,16 @@ INSERT INTO article (
     'https://www.helmet.fi/fi-FI'
   );
 
+INSERT INTO blog (
+  title,
+  author,
+  url
+) VALUES (
+    'Building blogs',
+    'blogger',
+    'https://www.google.com'
+);
+
 INSERT INTO video (
   channel, 
   title, 
