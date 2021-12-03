@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
+from app import db
 import articles, blogs, user, videos, books
 
 @app.route("/")
@@ -122,3 +123,15 @@ def login():
 def logout():
     user.logout()
     return redirect('/')
+    
+@app.route("/hide_item", methods=['GET', 'POST'])
+def hide_item():
+    if request.method == "GET":
+        return redirect("/browse")
+    if request.method == "POST":
+        item_type = request.form["item_type"]
+        item_id = request.form["item_id"]
+        sql = "UPDATE " + item_type + " SET visible = 0 WHERE id = " + str(item_id)
+        db.session.execute(sql)
+        db.session.commit()
+    return redirect('/browse')

@@ -26,7 +26,11 @@
                     {{ blog.author }}
                 </td>
                 <td>
-                    <a href="/">Poista</a>
+                    <form action="/hide_item" method="POST">
+                        <input type="hidden" value={{ blog.id }} name="item_id">
+                        <input type="hidden" value="blog" name="item_type">
+                        <input type="submit" value="Poista">
+                    </form>
                 </td>
             </tr>
         {% endfor %}
@@ -54,7 +58,11 @@
                         {{ article.author }}
                     </td>
                     <td>
-                        <button>Poista</button>
+                        <form action="/hide_item" method="POST">
+                            <input type="hidden" value={{ article.id }} name="item_id">
+                            <input type="hidden" value="article" name="item_type">
+                            <input type="submit" value="Poista">
+                        </form>
                     </td>
                 </tr>
             {% endfor %}
@@ -77,7 +85,11 @@
                     {{ video.channel }}
                 </td>
                 <td>
-                    <button>Poista</button>
+                    <form action="/hide_item" method="POST">
+                        <input type="hidden" value={{ video.id }} name="item_id">
+                        <input type="hidden" value="video" name="item_type">
+                        <input type="submit" value="Poista">
+                    </form>
                 </td>
             </tr>
         {% endfor %}
@@ -103,7 +115,11 @@
                         {{ book.author }}
                         </td>
                         <td>
-                            <button>Poista</button>
+                            <form action="/hide_item" method="POST">
+                                <input type="hidden" value={{ book.id }} name="item_id">
+                                <input type="hidden" value="book" name="item_type">
+                                <input type="submit" value="Poista">
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}
