@@ -1,5 +1,6 @@
 import unittest
 import articles
+from app import db
 
 class TestArticle(unittest.TestCase):
     def setUp(self):
@@ -15,3 +16,14 @@ class TestArticle(unittest.TestCase):
 
         articles.add_new_article("Testing stuff", "T. Esting", "10.9876/54321", "")
         self.assertEqual(len(articles.get_all()), amount + 1)
+        
+    def test_hide_article(self):
+        articles.add_new_article("Testi", "Minä", "", "www.testi.fi")
+        result = db.session.execute("SELECT id FROM article WHERE title = 'Testi'")
+        
+        #this is the id of the newly added test data
+        idno = result.fetchone()[0]
+        
+        articles.hide(idno)
+        result = db.session.execute("SELECT visible FROM article WHERE id = " + str(idno))
+        self.assertEqual(result.fetchone()[0], 0)

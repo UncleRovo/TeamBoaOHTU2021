@@ -1,5 +1,6 @@
 import unittest
 import videos
+from app import db
 
 class TestArticle(unittest.TestCase):
     def setUp(self):
@@ -13,4 +14,15 @@ class TestArticle(unittest.TestCase):
     def test_video_added_to_database(self):
         success = videos.add_new_video("ABCvideo", "ABCchannel", "https://www.google.com")
         self.assertEqual(success, True)
+        
+    def test_hide_video(self):
+        videos.add_new_video("Titteli", "Kanava", "www.liianpitka.fi/watch/okdeo")
+        result = db.session.execute("SELECT id FROM video WHERE title = 'Titteli'")
+        
+        #this is the id of the newly added test data
+        idno = result.fetchone()[0]
+        
+        videos.hide(idno)
+        result = db.session.execute("SELECT visible FROM video WHERE id = " + str(idno))
+        self.assertEqual(result.fetchone()[0], 0)
     
