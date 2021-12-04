@@ -20,3 +20,13 @@ Definition of Done:
 - testikattavuus 80 % - käyttöliittymää ei lasketa mukaan. Sprintistä 2 eteenpäin
 
 ---
+Unittestit
+Coverage-raportin voit nähdä paikallisesti omalla koneellasi. Tee seuraavasti:
+1) Kloonaa tämä projekti GitHubista omalle koneellesi (<b>git clone git@github.com:UncleRovo/TeamBoaOHTU2021.git</b>)
+
+Suorita projektin juurihakemistossa seuraavat komennot:
+2) <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
+3) Poetry shell ??
+4) poetry run invoke initialize (alusta ja luo tietokanta)
+5) poetry run invoke test
+6) poetry run invoke coverage (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
