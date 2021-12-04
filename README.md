@@ -26,7 +26,8 @@ Coverage-raportin voit nähdä paikallisesti omalla koneellasi. Tee seuraavasti:
 
 Suorita projektin juurihakemistossa seuraavat komennot:
 2) <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
-3) Poetry shell ??
-4) poetry run invoke initialize (alusta ja luo tietokanta)
-5) poetry run invoke test
-6) poetry run invoke coverage (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
+3) <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
+
+# ei tarvi 3) Poetry shell ??
+# ei tarvi 4) poetry run invoke initialize (alusta ja luo tietokanta)
+# ei tarvi 5) poetry run invoke test
