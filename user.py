@@ -28,5 +28,5 @@ def register(username, password):
         return False
 
 def logout():
-	session.clear()
-	return True
+    session.clear()
+    return True
