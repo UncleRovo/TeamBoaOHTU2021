@@ -4,11 +4,12 @@
 Login
 {% endblock %}
 
+{% block content%}
+
 {% if message %}
 Virhe: {{ message }}
 {% endif %}
 
-{% block content%}
 <form action="/login" method="POST">
   Kirjaudu sisään
   <div class="article">
@@ -22,7 +23,7 @@ Virhe: {{ message }}
       <input type="password" name="password" id="password" />
     </div>
 
-    <button>
+    <button id='Login'>
       Kirjaudu
     </button>
   </div>
