@@ -17,6 +17,8 @@ Register Should Succeed With Valid Username And Password
     Set Password  salasana24
     Submit Registration
     Register Should Succeed
+    Click Link  Kirjaudu ulos
+    
 
 Register Should Fail With A Username That Is Already In Use
     Go To Home Page
@@ -34,7 +36,6 @@ Register A New User Should Be Open
 
 Registering Should Fail With Message
     [Arguments]  ${message}
-    Register A New User Should Be Open
     Page Should Contain  ${message}
 
 Submit Credentials
