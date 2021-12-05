@@ -14,24 +14,24 @@ def browse():
                                           videos=videos.get_all(),
                                           books=books.get_all())
 
-@app.route("/new_choose_type", methods=['GET', 'POST'])
+@app.route("/new_choose_type", methods=["GET", "POST"])
 def new_choose_type():
     if request.method == "GET":
         return render_template("new_choose_type.html")
     if request.method == "POST":
-        type = request.form.get("type")
-        if type == "article":
+        type_of = request.form.get("type")
+        if type_of == "article":
             return redirect("/new_article")
-        elif type == "blog":
+        elif type_of == "blog":
             return redirect("/new_blog")
-        elif type == "video":
+        elif type_of == "video":
             return redirect("/new_video")
-        elif type == "book":
+        elif type_of == "book":
             return redirect("/new_book")
         else:
             return render_template("new_choose_type.html")
 
-@app.route("/new_article", methods=['GET', 'POST'])
+@app.route("/new_article", methods=["GET", "POST"])
 def new_article():
     if request.method == "GET":
         return render_template("new_article.html")
@@ -52,7 +52,7 @@ def new_article():
         else: # error-sivu (?) lisättävä myöhemmin
             return redirect("/new_article")
 
-@app.route("/new_blog", methods=['GET', 'POST'])
+@app.route("/new_blog", methods=["GET", "POST"])
 def new_blog():
     if request.method == "GET":
         return render_template("new_blog.html")
@@ -65,7 +65,7 @@ def new_blog():
         else:
             return redirect("/new_blog")
 
-@app.route("/new_video", methods=['GET', 'POST'])
+@app.route("/new_video", methods=["GET", "POST"])
 def new_video():
     if request.method == "GET":
         return render_template("new_video.html")
@@ -78,7 +78,7 @@ def new_video():
         else:
             return redirect("/new_video")
 
-@app.route("/new_book", methods=['GET', 'POST'])
+@app.route("/new_book", methods=["GET", "POST"])
 def new_book():
     if request.method == "GET":
         return render_template("new_book.html")
@@ -91,7 +91,7 @@ def new_book():
         else:
             return redirect("/new_book")
 
-@app.route("/register", methods=['GET', 'POST'])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "GET":
         return render_template("register.html")
@@ -104,7 +104,7 @@ def register():
         else:
             return render_template("/register.html", message="Rekisteröinti ei onnistunut")
 
-@app.route('/login', methods=['get','post'])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
         return render_template("login.html")
@@ -116,24 +116,24 @@ def login():
         else:
             return render_template("/login.html", message="Kirjautuminen ei onnistunut")
 
-@app.route('/logout')
+@app.route("/logout")
 def logout():
     user.logout()
-    return redirect('/')
-    
-@app.route("/hide_item", methods=['GET', 'POST'])
+    return redirect("/")
+
+@app.route("/hide_item", methods=["GET", "POST"])
 def hide_item():
     if request.method == "GET":
         return redirect("/browse")
     if request.method == "POST":
         item_type = request.form["item_type"]
         item_id = request.form["item_id"]
-        if (item_type == "blog"):
+        if item_type == "blog":
             blogs.hide(item_id)
-        elif (item_type == "article"):
+        elif item_type == "article":
             articles.hide(item_id)
-        elif (item_type == "video"):
+        elif item_type == "video":
             videos.hide(item_id)
-        elif (item_type == "book"):
+        elif item_type == "book":
             books.hide(item_id)
-    return redirect('/browse')
+    return redirect("/browse")
