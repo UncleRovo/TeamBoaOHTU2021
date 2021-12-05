@@ -27,3 +27,9 @@ Browse Page Contains Original Videos
 Browse Page Contains Original Book
     Go To Browse Page
     Page Should Contain  The Lord of the Rings
+
+Browse Page Should Not Contain A Blog After It Is Hidden
+    Go To Browse Page
+    Page Should Contain  Building blogs
+    Click Button  Poista
+    Page Should Not Contain  Building blogs
