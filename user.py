@@ -3,17 +3,19 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from app import db
 
 def login(username, password, test=False):
-    sql = "SELECT id, username, password FROM users WHERE username=:username"
-    result = db.session.execute(sql, {"username":username})
-    user = result.fetchone()
-    if test:
-        return True
-    if user is not None:
-        if check_password_hash(user[2], password):
-            session["username"] = user[1]
-            session["user_id"] = user[0]
+    try:
+        sql = "SELECT id, username, password FROM users WHERE username=:username"
+        result = db.session.execute(sql, {"username":username})
+        user = result.fetchone()
+        if test:
             return True
-    return False
+        if user is not None:
+            if check_password_hash(user[2], password):
+                session["username"] = user[1]
+                session["user_id"] = user[0]
+                return True
+    except: # pylint: disable=bare-except
+        return False
 
 def register(username, password):
     try:

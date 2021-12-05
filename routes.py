@@ -98,14 +98,11 @@ def register():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-
         if user.register(username, password):
             if user.login(username, password):
-                # Had to add this for the unittests to work. 
-                # Logging test does not work atm.
                 return redirect("/")
         else:
-            return render_template("/register.html", message='Rekisteröinti ei onnistunut')
+            return render_template("/register.html", message="Rekisteröinti ei onnistunut")
 
 @app.route('/login', methods=['get','post'])
 def login():
@@ -117,7 +114,7 @@ def login():
         if user.login(username, password):
             return redirect("/")
         else:
-            return render_template("login.html", message='Kirjautuminen ei onnistunut')
+            return render_template("/login.html", message="Kirjautuminen ei onnistunut")
 
 @app.route('/logout')
 def logout():
