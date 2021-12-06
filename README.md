@@ -4,7 +4,6 @@
 ---
 
 ![GitHub Actions](https://github.com/UncleRovo/TeamBoaOHTU2021/workflows/CI/badge.svg)
-[![codecov](https://codecov.io/gh/UncleRovo/TeamBoaOHTU2021/branch/main/graph/badge.svg?token=RVVXELLER4)](https://codecov.io/gh/UncleRovo/TeamBoaOHTU2021)
 
 [Backlog (Team use)](https://helsinkifi-my.sharepoint.com/:x:/g/personal/karhelmi_ad_helsinki_fi/EUyjfZObbRtEktjglZIfjqkBznpw83N5DPR699B00N6RFQ?e=fe2MUZ)
 
@@ -12,7 +11,7 @@
 
 ---
 
-Definition of Done:
+## Definition of Done:
 - pylintin 8/10 mukaisesti kirjoitettu Sprintistä 2 eteenpäin
 - yksikkötestit ominaisuudelle tehty ja ne menevät paikallisesti läpi
 - GitHub Actionit menevät läpi (ehkä toisesta sprintistä lähtien?)
@@ -20,7 +19,23 @@ Definition of Done:
 - testikattavuus 80 % - käyttöliittymää ei lasketa mukaan. Sprintistä 2 eteenpäin
 
 ---
-Testikattavuusraportti
+
+![Sprint 2 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint2)
+
+---
+## Sovelluksen paikallinen käyttö
+
+Lataa koodi kloonaamalla projekti tai lataamalla ja purkamalla releasessa oleva lähdekoodi. 
+
+Tietokanta tulee alustaa ennen sovelluksen käyttöä käskyllä
+`psql < schema.sql`.
+
+Jotta kirjautuminen ja rekisteröityminen toimisi, tulee sovelluksen juureen luoda tiedosto .env, jonka sisälle on määriteltävä haluamansa salainen avain, tyyliin
+`SECRET_KEY=haluamasisalainenmerkkijonotähän`.
+
+---
+
+## Testikattavuusraportti
 <p>
 Coverage-raportin voit nähdä paikallisesti omalla koneellasi. Tee seuraavasti:
 <p>
@@ -31,7 +46,3 @@ Suorita projektin juurihakemistossa seuraavat komennot:
 2) <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
 <p>
 3) <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
-
-> POISTA? ei tarvi 3) Poetry shell ??
-> POISTA VAI TARVIIKO SITTENKIN, JÄRJELLÄ PITÄISI TARVITA? ei tarvi 4) poetry run invoke initialize (alusta ja luo tietokanta)
-> POISTA? ei tarvi 5) poetry run invoke test
