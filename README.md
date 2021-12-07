@@ -40,12 +40,16 @@ Jotta kirjautuminen ja rekisteröityminen toimisi, tulee sovelluksen juureen luo
 Coverage-raportin voit nähdä paikallisesti omalla koneellasi. Tee seuraavasti:
 <p>
 1) Kloonaa tämä projekti GitHubista omalle koneellesi (<b>git clone git@github.com:UncleRovo/TeamBoaOHTU2021.git</b>)
+<p>
+2) Kirjoita toiseen terminaali-ikkunaan <b>start-pg.sh</b> ja jätä se taustalle.
 
 Suorita projektin juurihakemistossa seuraavat komennot:
 <p>
-2) <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
+3) <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
 <p>
-3) <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
+4) <b>poetry run invoke initialize</b> (alustaa tietokannann)
+<p>
+5) <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
 
   ---
   
