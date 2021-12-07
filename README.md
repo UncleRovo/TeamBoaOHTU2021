@@ -46,3 +46,8 @@ Suorita projektin juurihakemistossa seuraavat komennot:
 2) <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
 <p>
 3) <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
+
+  ---
+  
+  ## License
+  ![MIT License](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/LICENSE)
