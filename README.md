@@ -20,7 +20,7 @@
 
 ---
 
-![Sprint 2 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint2)
+[Sprint 2 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint2)
 
 ---
 ## Sovelluksen paikallinen käyttö
