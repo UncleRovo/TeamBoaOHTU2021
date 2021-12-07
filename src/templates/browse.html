@@ -106,10 +106,8 @@
                     {% for book in books %}
                     <tr>
                         <td>
-                            {% if book.isbn %}
-                            {% set url = "https://isbnsearch.org/isbn/" + book.isbn %}
+                            {% set url = "https://www.finna.fi/Search/Results?limit=0&lookfor=" + book.isbn %}
                             <a class="tablelink "href={{ url }} alt={{ book.isbn }} >{{ book.title }}</a>
-                            {% endif %}
                         </td>
                         <td>
                         {{ book.author }}

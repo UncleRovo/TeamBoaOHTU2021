@@ -93,5 +93,5 @@ INSERT INTO book (
   ) VALUES (
    'J.R.R. Tolkien',
    'The Lord of the Rings',
-   '9780544003415'
+   '0-261-10325-3'
   );
