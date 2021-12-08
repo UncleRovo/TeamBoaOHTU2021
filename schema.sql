@@ -15,7 +15,8 @@ CREATE TABLE blog (
   title TEXT, 
   author TEXT, 
   url TEXT,
-  visible INTEGER DEFAULT 1
+  visible INTEGER DEFAULT 1,
+  owner INTEGER
 );
 
 CREATE TABLE book (
@@ -23,7 +24,8 @@ CREATE TABLE book (
   author TEXT, 
   title TEXT, 
   isbn TEXT,
-  visible INTEGER DEFAULT 1
+  visible INTEGER DEFAULT 1,
+  owner INTEGER
 );
 
 CREATE TABLE article (
@@ -32,7 +34,8 @@ CREATE TABLE article (
   title TEXT, 
   doi TEXT,
   url TEXT,
-  visible INTEGER DEFAULT 1
+  visible INTEGER DEFAULT 1,
+  owner INTEGER
 );
 
 CREATE TABLE video (
@@ -40,7 +43,8 @@ CREATE TABLE video (
   channel TEXT, 
   title TEXT, 
   url TEXT,
-  visible INTEGER DEFAULT 1
+  visible INTEGER DEFAULT 1,
+  owner INTEGER
 );
 
 
@@ -51,47 +55,57 @@ CREATE TABLE video (
 INSERT INTO article (
   title, 
   author, 
-  url
+  url,
+  owner
   ) VALUES (
     'How to brew a cup of coffee', 
     'James B. Rew', 
-    'https://www.google.com'
+    'https://www.google.com',
+    1
   ), (
     'Helsingin kirjasto', 
     'Helsinki', 
-    'https://www.helmet.fi/fi-FI'
+    'https://www.helmet.fi/fi-FI',
+    1
   );
 
 INSERT INTO blog (
   title,
   author,
-  url
+  url,
+  owner
 ) VALUES (
     'Building blogs',
     'blogger',
-    'https://www.google.com'
+    'https://www.google.com',
+    1
 );
 
 INSERT INTO video (
   channel, 
   title, 
-  url
+  url,
+  owner
   ) VALUES (
     'Kings and Generals', 
     'How Caesar Won the Greast Roman Civil War',
-    'https://www.youtube.com/watch?v=o8F8IajtW9U'
+    'https://www.youtube.com/watch?v=o8F8IajtW9U',
+    1
   ), (
     'Rufus',
     'Cute and Funny Cat Videos to Keep You Smiling',
-    'https://www.youtube.com/watch?v=tpiyEe_CqB4'
+    'https://www.youtube.com/watch?v=tpiyEe_CqB4',
+    1
   );
 
 INSERT INTO book (
   author,
   title,
-  isbn
+  isbn,
+  owner
   ) VALUES (
    'J.R.R. Tolkien',
    'The Lord of the Rings',
-   '0-261-10325-3'
+   '0-261-10325-3',
+   1
   );
