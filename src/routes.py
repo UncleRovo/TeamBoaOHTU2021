@@ -9,13 +9,18 @@ def index():
 
 @app.route("/browse")
 def browse():
-    return render_template("browse.html", blogs=blogs.get_all(),
+    if (user.isLoggedIn()):
+        return render_template("browse.html", blogs=blogs.get_all(),
                                           articles=articles.get_all(),
                                           videos=videos.get_all(),
                                           books=books.get_all())
+    return redirect("/")
 
 @app.route("/new_choose_type", methods=["GET", "POST"])
 def new_choose_type():
+    if (user.isLoggedIn() == False):
+        return redirect("/")
+        
     if request.method == "GET":
         return render_template("new_choose_type.html")
     if request.method == "POST":
@@ -33,6 +38,9 @@ def new_choose_type():
 
 @app.route("/new_article", methods=["GET", "POST"])
 def new_article():
+    if (user.isLoggedIn() == False):
+        return redirect("/")
+        
     if request.method == "GET":
         return render_template("new_article.html")
     if request.method == "POST":
@@ -54,6 +62,9 @@ def new_article():
 
 @app.route("/new_blog", methods=["GET", "POST"])
 def new_blog():
+    if (user.isLoggedIn() == False):
+        return redirect("/")
+        
     if request.method == "GET":
         return render_template("new_blog.html")
     if request.method == "POST":
@@ -67,6 +78,9 @@ def new_blog():
 
 @app.route("/new_video", methods=["GET", "POST"])
 def new_video():
+    if (user.isLoggedIn() == False):
+        return redirect("/")
+        
     if request.method == "GET":
         return render_template("new_video.html")
     if request.method == "POST":
@@ -80,6 +94,9 @@ def new_video():
 
 @app.route("/new_book", methods=["GET", "POST"])
 def new_book():
+    if (user.isLoggedIn() == False):
+        return redirect("/")
+        
     if request.method == "GET":
         return render_template("new_book.html")
     if request.method == "POST":
@@ -93,6 +110,9 @@ def new_book():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if (user.isLoggedIn()):
+        return redirect("/")
+        
     if request.method == "GET":
         return render_template("register.html")
     if request.method == "POST":
@@ -106,6 +126,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if (user.isLoggedIn()):
+        return redirect("/")
+        
     if request.method == "GET":
         return render_template("login.html")
     if request.method == "POST":
@@ -123,6 +146,9 @@ def logout():
 
 @app.route("/hide_item", methods=["GET", "POST"])
 def hide_item():
+    if (user.isLoggedIn() == False):
+        return redirect("/")
+        
     if request.method == "GET":
         return redirect("/browse")
     if request.method == "POST":
