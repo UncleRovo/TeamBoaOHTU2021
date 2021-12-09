@@ -11,6 +11,12 @@ def get_all():
     result = db.session.execute(sql)
     articles = result.fetchall()
     return articles
+    
+def get_by_user(owner):
+    sql = "SELECT * FROM article WHERE visible=1 AND owner = :owner"
+    result = db.session.execute(sql, {"owner":owner})
+    articles = result.fetchall()
+    return articles
 
 def hide(item_id):
     sql = "UPDATE article SET visible = 0 WHERE id=:item_id"
