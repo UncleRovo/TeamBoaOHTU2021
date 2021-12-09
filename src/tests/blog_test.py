@@ -30,4 +30,18 @@ class TestArticle(unittest.TestCase):
 
     def test_blog_has_created_at_information(self):
         blog_data = blogs.get_all()
-        self.assertIsNotNone(blog_data[0][6])
+        self.assertIsNotNone(blog_data[0][7])
+
+    def test_blog_has_empty_taglist_if_no_tags_added(self):
+        blogs.add_new_blog("notags", "who", "www.vvv.ee")
+        result = db.session.execute("SELECT tag FROM blog WHERE title='notags'")
+        tag = result.fetchone()[0]
+
+        self.assertListEqual(tag, [])
+
+    def test_blog_has_list_of_added_tags(self):
+        blogs.add_new_blog("tagsplease", "who", "www.vvv.ee", ["tag1","tag2","tag3"])
+        result = db.session.execute("SELECT tag FROM blog WHERE title='tagsplease'")
+        tag = result.fetchone()[0]
+
+        self.assertListEqual(tag, ["tag1", "tag2", "tag3"])

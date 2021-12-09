@@ -31,4 +31,18 @@ class TestBook(unittest.TestCase):
 
     def test_book_has_created_at_information(self):
         book_data = books.get_all()
-        self.assertIsNotNone(book_data[0][6])
+        self.assertIsNotNone(book_data[0][7])
+
+    def test_book_has_empty_taglist_if_no_tags_added(self):
+        books.add_new_book("notags", "who", "ISBN")
+        result = db.session.execute("SELECT tag FROM book WHERE title='notags'")
+        tag = result.fetchone()[0]
+
+        self.assertListEqual(tag, [])
+
+    def test_book_has_list_of_added_tags(self):
+        books.add_new_book("tagsplease", "who", "ISBN", ["tag1","tag2","tag3"])
+        result = db.session.execute("SELECT tag FROM book WHERE title='tagsplease'")
+        tag = result.fetchone()[0]
+
+        self.assertListEqual(tag, ["tag1", "tag2", "tag3"])

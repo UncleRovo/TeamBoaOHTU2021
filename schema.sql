@@ -17,6 +17,7 @@ CREATE TABLE blog (
   url TEXT,
   visible INTEGER DEFAULT 1,
   owner INTEGER,
+  tag TEXT[],
   created_at TIMESTAMP
 );
 
@@ -27,6 +28,7 @@ CREATE TABLE book (
   isbn TEXT,
   visible INTEGER DEFAULT 1,
   owner INTEGER,
+  tag TEXT[],
   created_at TIMESTAMP
 );
 
@@ -38,6 +40,7 @@ CREATE TABLE article (
   url TEXT,
   visible INTEGER DEFAULT 1,
   owner INTEGER,
+  tag TEXT[],
   created_at TIMESTAMP
 );
 
@@ -48,6 +51,7 @@ CREATE TABLE video (
   url TEXT,
   visible INTEGER DEFAULT 1,
   owner INTEGER,
+  tag TEXT[],
   created_at TIMESTAMP
 );
 
@@ -61,18 +65,21 @@ INSERT INTO article (
   author, 
   url,
   owner,
+  tag,
   created_at
   ) VALUES (
     'How to brew a cup of coffee', 
     'James B. Rew', 
     'https://www.google.com',
     1,
+    '{}',
     NOW()
   ), (
     'Helsingin kirjasto', 
     'Helsinki', 
     'https://www.helmet.fi/fi-FI',
     1,
+    '{}',
     NOW()
   );
 
@@ -80,13 +87,15 @@ INSERT INTO blog (
   title,
   author,
   url,
-  owner, 
+  owner,
+  tag,
   created_at
 ) VALUES (
     'Building blogs',
     'blogger',
     'https://www.google.com',
     1,
+    '{}',
     NOW()
 );
 
@@ -95,18 +104,21 @@ INSERT INTO video (
   title, 
   url,
   owner,
+  tag,
   created_at
   ) VALUES (
     'Kings and Generals', 
     'How Caesar Won the Greast Roman Civil War',
     'https://www.youtube.com/watch?v=o8F8IajtW9U',
     1,
+    '{}',
     NOW()
   ), (
     'Rufus',
     'Cute and Funny Cat Videos to Keep You Smiling',
     'https://www.youtube.com/watch?v=tpiyEe_CqB4',
     1,
+    '{}',
     NOW()
   );
 
@@ -115,11 +127,13 @@ INSERT INTO book (
   title,
   isbn,
   owner,
+  tag,
   created_at
   ) VALUES (
    'J.R.R. Tolkien',
    'The Lord of the Rings',
    '0-261-10325-3',
    1,
+   '{}',
    NOW()
   );

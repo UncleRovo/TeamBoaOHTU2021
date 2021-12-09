@@ -28,5 +28,19 @@ class TestArticle(unittest.TestCase):
 
     def test_video_has_created_at_information(self):
         video_data = videos.get_all()
-        self.assertIsNotNone(video_data[0][6])
+        self.assertIsNotNone(video_data[0][7])
+
+    def test_video_has_empty_taglist_if_no_tags_added(self):
+        videos.add_new_video("notags", "channel saimaa", "kurl")
+        result = db.session.execute("SELECT tag FROM video WHERE title='notags'")
+        tag = result.fetchone()[0]
+
+        self.assertListEqual(tag, [])
+
+    def test_book_has_list_of_added_tags(self):
+        videos.add_new_video("tagsplease", "channel saimaa", "kurl", ["tag1","tag2","tag3"])
+        result = db.session.execute("SELECT tag FROM video WHERE title='tagsplease'")
+        tag = result.fetchone()[0]
+
+        self.assertListEqual(tag, ["tag1", "tag2", "tag3"])
     

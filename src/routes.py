@@ -48,6 +48,9 @@ def new_article():
         author = request.form["author"]
         resource_id_type = request.form["resource_id_type"]
         resource_id = request.form["resource_id"]
+        tag = request.form["tag"]
+        tag = [t.strip() for t in tag.split(";")]
+        print(tag)
         if resource_id_type == "doi":
             doi = resource_id
             url = ""
@@ -55,7 +58,7 @@ def new_article():
             doi = ""
             url = resource_id
 
-        if articles.add_new_article(title, author, doi, url):
+        if articles.add_new_article(title, author, doi, url, tag):
             return redirect("/")
         else: # error-sivu (?) lisättävä myöhemmin
             return redirect("/new_article")
@@ -71,7 +74,9 @@ def new_blog():
         title = request.form["title"]
         author = request.form["author"]
         url = request.form["url"]
-        if blogs.add_new_blog(title, author, url):
+        tag = request.form["tag"]
+        tag = [t.strip() for t in tag.split(";")]
+        if blogs.add_new_blog(title, author, url, tag):
             return redirect("/")
         else:
             return redirect("/new_blog")
@@ -87,7 +92,9 @@ def new_video():
         title = request.form["title"]
         channel = request.form["channel"]
         url = request.form["url"]
-        if videos.add_new_video(title, channel, url):
+        tag = request.form["tag"]
+        tag = [t.strip() for t in tag.split(";")]
+        if videos.add_new_video(title, channel, url, tag):
             return redirect("/")
         else:
             return redirect("/new_video")
@@ -103,7 +110,9 @@ def new_book():
         title = request.form["title"]
         author = request.form["author"]
         isbn = request.form["isbn"]
-        if books.add_new_book(title, author, isbn):
+        tag = request.form["tag"]
+        tag = [t.strip() for t in tag.split(";")]
+        if books.add_new_book(title, author, isbn, tag):
             return redirect("/")
         else:
             return redirect("/new_book")
