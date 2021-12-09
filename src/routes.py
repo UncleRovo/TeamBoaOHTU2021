@@ -172,3 +172,22 @@ def hide_item():
         elif item_type == "book":
             books.hide(item_id)
     return redirect("/browse")
+
+@app.route("/edit/<string:item_type>/<int:id>", methods=["GET", "POST"])
+def edit_item(item_type, id):
+    if not user.isLoggedIn():
+        return redirect("/")
+
+    get_item = {"article": articles.get_one(id),
+                "blog": blogs.get_one(id),
+                "book": books.get_one(id),
+                "video": videos.get_one(id)}                
+    item = get_item[item_type]
+    tag = ";".join(item.tag)
+    if request.method == "GET":
+        return render_template("edit_item.html", item_type=item_type, item=item, tag=tag, id=id)
+
+    if request.method == "POST":
+        print("moukattu")
+        
+    return redirect("/browse")

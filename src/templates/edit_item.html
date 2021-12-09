@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Muokkaa - {{ item.title }}
+{% endblock %}
+
+{% block content%}
+
+{% if item_type == 'article' %}
+<form action={{ "/edit/article/" ~ item.id }} method="POST">
+    <div class="article">
+        Muokkaa lukuvinkkiä
+        <p>
+        <p>Otsikko</p>
+        <input type="text" name="title" size="30" value={{ item.title }}>
+        <p>Tekijä</p>
+        <input type="text" name="author" size="30" value={{ item.author }}>
+        <br><br>
+        <input type="radio" name="resource_id_type" value="doi" {% if item.doi %} checked {% endif %}> DOI</radio>
+        <input type="radio" name="resource_id_type" value="url" {% if item.url %} checked {% endif %}> URL
+        <br><br>
+        <input type="text" name="resource_id" size="30" {% if item.doi %} value={{ item.doi }} {% else %} value={{ item.url }} {% endif %}>
+        <br>
+        <p>Tagit (erota useampi tagi puolipisteellä)</p>
+        <input type="text" name="tag" size="30" value={{ tag }}>
+        <br>
+
+        <input type="submit" name=button value="tallenna">
+        <input type="reset" name=reset value="peruuta muutokset">
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}

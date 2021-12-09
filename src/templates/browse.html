@@ -27,10 +27,15 @@
             <td>
                 {{ blog.author }}
             </td>
-            <td>
+            <td style="padding-right: 0px;">
                 {{ blog.created_at.strftime("%d.%m.%Y %H:%M") }}
             </td>
-            <td>
+            <td style="padding: 10px;">
+                <form action={{ url_for("edit_item", item_type="blog", id=blog.id) }} method="GET">
+                    <input type="submit" value="muokkaa">
+                </form>
+            </td>
+            <td style="padding: 10px;">
                 <form action="/hide_item" method="POST" onSubmit="return check(this)">
                     <input type="hidden" value={{ blog.id }} name="item_id">
                     <input type="hidden" value="blog" name="item_type">
@@ -63,10 +68,15 @@
             <td>
                 {{ article.author }}
             </td>
-            <td>
+            <td style="padding-right: 0px;">
                 {{ article.created_at.strftime("%d.%m.%Y %H:%M") }}
             </td>
-            <td>
+            <td style="padding: 10px;">
+                <form action={{ url_for("edit_item", item_type="article", id=article.id) }} method="GET">
+                    <input type="submit" value="muokkaa">
+                </form>
+            </td>
+            <td style="padding: 10px;">
                 <form action="/hide_item" method="POST" onSubmit="return check(this)">
                     <input type="hidden" value={{ article.id }} name="item_id">
                     <input type="hidden" value="article" name="item_type">
@@ -94,10 +104,15 @@
             <td>
                 {{ video.channel }}
             </td>
-            <td>
+            <td style="padding-right: 0px;">
                 {{ video.created_at.strftime("%d.%m.%Y %H:%M") }}
             </td>
-            <td>
+            <td style="padding: 10px;">
+                <form action={{ url_for("edit_item", item_type="video", id=video.id) }} method="GET">
+                    <input type="submit" value="muokkaa">
+                </form>
+            </td>
+            <td style="padding: 10px;">
                 <form action="/hide_item" method="POST" onSubmit="return check(this)">
                     <input type="hidden" value={{ video.id }} name="item_id">
                     <input type="hidden" value="video" name="item_type">
@@ -127,10 +142,15 @@
             <td>
                 {{ book.author }}
             </td>
-            <td>
+            <td style="padding-right: 0px;">
                 {{ book.created_at.strftime("%d.%m.%Y %H:%M") }}
             </td>
-            <td>
+            <td style="padding: 10px;">
+                <form action={{ url_for("edit_item", item_type="book", id=book.id) }} method="GET">
+                    <input type="submit" value="muokkaa">
+                </form>
+            </td>
+            <td style="padding: 10px;">
                 <form action="/hide_item" method="POST" onSubmit="return check(this)">
                     <input type="hidden" value={{ book.id }} name="item_id">
                     <input type="hidden" value="book" name="item_type">

@@ -12,6 +12,12 @@ def get_all():
     books = result.fetchall()
     return books
 
+def get_one(id):
+    sql = "SELECT * FROM book WHERE id=:id"
+    result = db.session.execute(sql, {"id":id})
+    book = result.fetchone()
+    return book
+
 def hide(item_id):
     sql = "UPDATE book SET visible = 0 WHERE id=:item_id "
     db.session.execute(sql, {"item_id":item_id})
