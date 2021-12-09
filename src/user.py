@@ -38,3 +38,6 @@ def isLoggedIn():
         return True
     except:
         return False
+        
+def get_id():
+    return session["user_id"]
