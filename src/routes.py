@@ -189,6 +189,9 @@ def edit_item(item_type, id):
         return render_template("edit_item.html", item_type=item_type, item=item, tag=tag, id=id)
 
     if request.method == "POST":
-        print("moukattu")
+        print(f"muokkaa {item_type} (id {id}):")
+        items = request.form.items()
+        for key, value in items:
+            print(f"{key}: {value}")
         
     return redirect("/browse")

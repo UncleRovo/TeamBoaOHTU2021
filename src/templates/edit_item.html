@@ -25,8 +25,71 @@ Muokkaa - {{ item.title }}
         <input type="text" name="tag" size="30" value={{ tag }}>
         <br>
 
-        <input type="submit" name=button value="tallenna">
-        <input type="reset" name=reset value="peruuta muutokset">
+        <input type="submit" value="tallenna">
+        <input type="reset"  value="peruuta muutokset">
+    </div>
+</form>
+{% endif %}
+
+{% if item_type == 'blog' %}
+<form action={{ "/edit/blog/" ~ item.id }} method="POST">
+    <div class="article">
+        Muokkaa lukuvinkkiä
+        <p>
+        <p>Otsikko</p>
+        <input type="text" name="title" size="30" value={{ item.title }}>
+        <p>Tekijä</p>
+        <input type="text" name="author" size="30" value={{ item.author }}>
+        <p>URL</p>
+        <input type="text" name="url" size="30" value={{ item.url }}>
+        <br>
+        <p>Tagit (erota useampi tagi puolipisteellä)</p>
+        <input type="text" name="tag" size="30" value={{ tag }}>
+        <br>
+        <input type="submit" value="tallenna">
+        <input type="reset" value="peruuta muutokset">
+    </div>
+</form>
+{% endif %}
+
+{% if item_type == 'book' %}
+<form action={{ "/edit/book/" ~ item.id }} method="POST">
+    <div class="book">
+        Muokkaa lukuvinkkiä
+        <p>
+        <p>Otsikko</p>
+        <input type="text" name="title" size="30" value={{ item.title }}>
+        <p>Tekijä</p>
+        <input type="text" name="author" size="30" value={{ item.author }}>
+        <p>isbn</p>
+        <input type="text" name="isbn" size="30" value={{ item.isbn }}>
+        <br>
+        <p>Tagit (erota useampi tagi puolipisteellä)</p>
+        <input type="text" name="tag" size="30" value={{ tag }}>
+        <br>
+        <input type="submit" value="tallenna">
+        <input type="reset" value="peruuta muutokset">
+    </div>
+</form>
+{% endif %}
+
+{% if item_type == 'video' %}
+<form action={{ "/edit/video/" ~ item.id }} method="POST">
+    <div class="article">
+        Muokkaa videovinkkiä
+        <p>
+        <p>Otsikko</p>
+        <input type="text" name="title" size="30" value={{ item.title }}>
+        <p>Kanava</p>
+        <input type="text" name="channel" size="30" value={{ item.channel }}>
+        <p>URL</p>
+        <input type="text" name="url" size="30" value={{ item.url }}>
+        <br>
+        <p>Tagit (erota useampi tagi puolipisteellä)</p>
+        <input type="text" name="tag" size="30" value={{ tag }}>
+        <br>
+        <input type="submit" value="tallenna">
+        <input type="reset" value="peruuta muutokset">
     </div>
 </form>
 {% endif %}
