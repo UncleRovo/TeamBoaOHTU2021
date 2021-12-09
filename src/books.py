@@ -1,7 +1,7 @@
 from app import db
 
 def add_new_book(title, author, isbn):
-    sql = "INSERT INTO book (title, author, isbn) VALUES (:title, :author, :isbn)"
+    sql = "INSERT INTO book (title, author, isbn, created_at) VALUES (:title, :author, :isbn, NOW())"
     db.session.execute(sql, {"title":title, "author":author, "isbn":isbn})
     db.session.commit()
     return True

@@ -1,128 +1,138 @@
 {% extends "layout.html" %}
 {% block content%}
-    <div class="browse">
-        <h2>Tallennetut lukuvinkit</h2>
-        <hr>
-        <p>
-            <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/new_choose_type">Lisää vinkki</a></span>   <span>
+<div class="browse">
+    <h2>Tallennetut lukuvinkit</h2>
+    <hr>
+    <p>
+        <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/new_choose_type">Lisää vinkki</a></span> <span>
             <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/">etusivu</a>
-            </span>
-        </b></p>
+        </span>
+        </b>
+    </p>
 
 
-        {% if blogs %}
-        <h2>blogit</h2>
-        <table>
-            <tr>
-                <th>otsikko</th>
-                <th>kirjoittaja</th>
-            </tr>
+    {% if blogs %}
+    <h2>blogit</h2>
+    <table>
+        <tr>
+            <th>otsikko</th>
+            <th>kirjoittaja</th>
+        </tr>
         {% for blog in blogs %}
-            <tr>
-                <td>
-                    <a class="tablelink "href={{ blog.url }} alt={{ blog.url }}>{{ blog.title }}</a>
-                </td>
-                <td>
-                    {{ blog.author }}
-                </td>
-                <td>
-                    <form action="/hide_item" method="POST">
-                        <input type="hidden" value={{ blog.id }} name="item_id">
-                        <input type="hidden" value="blog" name="item_type">
-                        <input type="submit" value="Poista">
-                    </form>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <a class="tablelink " href={{ blog.url }} alt={{ blog.url }}>{{ blog.title }}</a>
+            </td>
+            <td>
+                {{ blog.author }}
+            </td>
+            <td>
+                <form action="/hide_item" method="POST" onSubmit="return check(this)">
+                    <input type="hidden" value={{ blog.id }} name="item_id">
+                    <input type="hidden" value="blog" name="item_type">
+                    <input type="submit" value="Poista">
+                </form>
+            </td>
+        </tr>
         {% endfor %}
-        </table>
-        {% endif %}
+    </table>
+    {% endif %}
 
-        {% if articles %}
-        <h2>artikkelit</h2>
-            <table>
-                <tr>
-                    <th>artikkeli</th>
-                    <th>kirjoittaja</th>
-                </tr>
-            {% for article in articles %}
-                <tr>
-                    <td>
-                        {% if article.doi %}
-                        {% set url = "https://doi.org/" + article.doi %}
-                        <a class="tablelink "href={{ url }} alt={{ article.doi }} >{{ article.title }}</a>
-                        {% elif article.url %}
-                        <a class="tablelink "href={{ article.url }} alt={{ article.url }}>{{ article.title }}</a>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {{ article.author }}
-                    </td>
-                    <td>
-                        <form action="/hide_item" method="POST">
-                            <input type="hidden" value={{ article.id }} name="item_id">
-                            <input type="hidden" value="article" name="item_type">
-                            <input type="submit" value="Poista">
-                        </form>
-                    </td>
-                </tr>
-            {% endfor %}
-            </table>
-        {% endif %}
+    {% if articles %}
+    <h2>artikkelit</h2>
+    <table>
+        <tr>
+            <th>artikkeli</th>
+            <th>kirjoittaja</th>
+        </tr>
+        {% for article in articles %}
+        <tr>
+            <td>
+                {% if article.doi %}
+                {% set url = "https://doi.org/" + article.doi %}
+                <a class="tablelink " href={{ url }} alt={{ article.doi }}>{{ article.title }}</a>
+                {% elif article.url %}
+                <a class="tablelink " href={{ article.url }} alt={{ article.url }}>{{ article.title }}</a>
+                {% endif %}
+            </td>
+            <td>
+                {{ article.author }}
+            </td>
+            <td>
+                <form action="/hide_item" method="POST" onSubmit="return check(this)">
+                    <input type="hidden" value={{ article.id }} name="item_id">
+                    <input type="hidden" value="article" name="item_type">
+                    <input type="submit" value="Poista">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 
-        {% if videos %}
-        <h2>videot</h2>
-        <table>
-            <tr>
-                <th>otsikko</th>
-                <th>kanava</th>
-            </tr>
+    {% if videos %}
+    <h2>videot</h2>
+    <table>
+        <tr>
+            <th>otsikko</th>
+            <th>kanava</th>
+        </tr>
         {% for video in videos %}
-            <tr>
-                <td>
-                    <a class="tablelink "href={{ video.url }} alt={{ video.url }}>{{ video.title }}</a>
-                </td>
-                <td>
-                    {{ video.channel }}
-                </td>
-                <td>
-                    <form action="/hide_item" method="POST">
-                        <input type="hidden" value={{ video.id }} name="item_id">
-                        <input type="hidden" value="video" name="item_type">
-                        <input type="submit" value="Poista">
-                    </form>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <a class="tablelink " href={{ video.url }} alt={{ video.url }}>{{ video.title }}</a>
+            </td>
+            <td>
+                {{ video.channel }}
+            </td>
+            <td>
+                <form action="/hide_item" method="POST" onSubmit="return check(this)">
+                    <input type="hidden" value={{ video.id }} name="item_id">
+                    <input type="hidden" value="video" name="item_type">
+                    <input type="submit" value="Poista">
+
+                </form>
+            </td>
+        </tr>
         {% endfor %}
-        </table>
-        {% endif %}
+    </table>
+    {% endif %}
 
-        {% if books %}
-            <h2>kirjat</h2>
-                <table>
-                    <tr>
-                        <th>kirja</th>
-                        <th>kirjoittaja</th>
-                    </tr>
-                    {% for book in books %}
-                    <tr>
-                        <td>
-                            {% set url = "https://www.finna.fi/Search/Results?limit=0&lookfor=" + book.isbn %}
-                            <a class="tablelink "href={{ url }} alt={{ book.isbn }} >{{ book.title }}</a>
-                        </td>
-                        <td>
-                        {{ book.author }}
-                        </td>
-                        <td>
-                            <form action="/hide_item" method="POST">
-                                <input type="hidden" value={{ book.id }} name="item_id">
-                                <input type="hidden" value="book" name="item_type">
-                                <input type="submit" value="Poista">
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </table>
-        {% endif %}
+    {% if books %}
+    <h2>kirjat</h2>
+    <table>
+        <tr>
+            <th>kirja</th>
+            <th>kirjoittaja</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>
+                {% set url = "https://www.finna.fi/Search/Results?limit=0&lookfor=" + book.isbn %}
+                <a class="tablelink " href={{ url }} alt={{ book.isbn }}>{{ book.title }}</a>
+            </td>
+            <td>
+                {{ book.author }}
+            </td>
+            <td>
+                <form action="/hide_item" method="POST" onSubmit="return check(this)">
+                    <input type="hidden" value={{ book.id }} name="item_id">
+                    <input type="hidden" value="book" name="item_type">
+                    <input type="submit" value="Poista">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 
-    </div>
+</div>
+
+<script>
+    function check(form) {
+        return confirm('Are you sure?');
+    }
+</script>
+
+
 {% endblock %}

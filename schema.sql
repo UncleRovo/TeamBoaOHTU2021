@@ -16,7 +16,8 @@ CREATE TABLE blog (
   author TEXT, 
   url TEXT,
   visible INTEGER DEFAULT 1,
-  owner INTEGER
+  owner INTEGER,
+  created_at TIMESTAMP
 );
 
 CREATE TABLE book (
@@ -25,7 +26,8 @@ CREATE TABLE book (
   title TEXT, 
   isbn TEXT,
   visible INTEGER DEFAULT 1,
-  owner INTEGER
+  owner INTEGER,
+  created_at TIMESTAMP
 );
 
 CREATE TABLE article (
@@ -35,7 +37,8 @@ CREATE TABLE article (
   doi TEXT,
   url TEXT,
   visible INTEGER DEFAULT 1,
-  owner INTEGER
+  owner INTEGER,
+  created_at TIMESTAMP
 );
 
 CREATE TABLE video (
@@ -44,7 +47,8 @@ CREATE TABLE video (
   title TEXT, 
   url TEXT,
   visible INTEGER DEFAULT 1,
-  owner INTEGER
+  owner INTEGER,
+  created_at TIMESTAMP
 );
 
 
