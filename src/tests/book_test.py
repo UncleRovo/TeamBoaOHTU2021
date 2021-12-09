@@ -28,3 +28,7 @@ class TestBook(unittest.TestCase):
         books.hide(idno)
         result = db.session.execute("SELECT visible FROM book WHERE id = " + str(idno))
         self.assertEqual(result.fetchone()[0], 0)
+
+    def test_book_has_created_at_information(self):
+        book_data = books.get_all()
+        self.assertIsNotNone(book_data[0][6])

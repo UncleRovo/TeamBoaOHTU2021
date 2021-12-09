@@ -1,7 +1,7 @@
 *** Settings ***
 Resource  resource.robot
-Suite Setup  Open And Configure Browser
-Suite Teardown  Close Browser
+Suite Setup  Open And Configure Browser And Register User
+Suite Teardown  Logout And Close Browser
 
 *** Test Cases ***
 Click Add Link

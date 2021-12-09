@@ -25,4 +25,8 @@ class TestArticle(unittest.TestCase):
         videos.hide(idno)
         result = db.session.execute("SELECT visible FROM video WHERE id = " + str(idno))
         self.assertEqual(result.fetchone()[0], 0)
+
+    def test_video_has_created_at_information(self):
+        video_data = videos.get_all()
+        self.assertIsNotNone(video_data[0][6])
     

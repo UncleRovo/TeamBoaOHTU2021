@@ -1,7 +1,7 @@
 *** Settings ***
 Resource  resource.robot
-Suite Setup  Open And Configure Browser
-Suite Teardown  Close Browser
+Suite Setup  Open And Configure Browser And Login User
+Suite Teardown  Logout And Close Browser
 
 *** Test Cases ***
 Click Browse Link
@@ -32,4 +32,5 @@ Browse Page Should Not Contain A Blog After It Is Hidden
     Go To Browse Page
     Page Should Contain  Building blogs
     Click Button  Poista
+    Alert Should Be Present
     Page Should Not Contain  Building blogs

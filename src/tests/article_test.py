@@ -27,3 +27,7 @@ class TestArticle(unittest.TestCase):
         articles.hide(idno)
         result = db.session.execute("SELECT visible FROM article WHERE id = " + str(idno))
         self.assertEqual(result.fetchone()[0], 0)
+
+    def test_article_has_created_at_information(self):
+        article_data = articles.get_all()
+        self.assertIsNotNone(article_data[0][6])
