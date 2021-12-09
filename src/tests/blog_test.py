@@ -27,3 +27,7 @@ class TestArticle(unittest.TestCase):
         blogs.hide(idno)
         result = db.session.execute("SELECT visible FROM blog WHERE id = " + str(idno))
         self.assertEqual(result.fetchone()[0], 0)
+
+    def test_blog_has_created_at_information(self):
+        blog_data = blogs.get_all()
+        self.assertIsNotNone(blog_data[0][6])
