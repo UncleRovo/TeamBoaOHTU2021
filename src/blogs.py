@@ -18,6 +18,12 @@ def get_one(id):
     blog = result.fetchone()
     return blog
 
+def get_by_user(owner):
+    sql = "SELECT * FROM blog WHERE visible=1 AND owner=:owner"
+    result = db.session.execute(sql, {"owner":owner})
+    articles = result.fetchall()
+    return articles
+
 def hide(item_id):
     sql = "UPDATE blog SET visible = 0 WHERE id=:item_id "
     db.session.execute(sql, {"item_id":item_id})

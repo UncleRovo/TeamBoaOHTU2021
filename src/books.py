@@ -11,6 +11,12 @@ def get_all():
     result = db.session.execute(sql)
     books = result.fetchall()
     return books
+    
+def get_by_user(owner):
+    sql = "SELECT * FROM book WHERE visible=1 AND owner=:owner"
+    result = db.session.execute(sql, {"owner":owner})
+    articles = result.fetchall()
+    return articles
 
 def get_one(id):
     sql = "SELECT * FROM book WHERE id=:id"
