@@ -3,8 +3,8 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${SERVER}  localhost:5000
-${BROWSER}  headlesschrome
-${DELAY}  0 seconds
+${BROWSER}  chrome
+${DELAY}  0.5 seconds
 ${HOME URL}  http://${SERVER}
 ${BROWSE URL}  http://${SERVER}/browse
 ${NEW_CHOOSE_TYPE URL}  http://${SERVER}/new_choose_type
