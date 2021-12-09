@@ -1,8 +1,8 @@
 from app import db
 
-def add_new_video(title, channel, url, tag=[]):
-    sql = "INSERT INTO video (title, channel, url, tag, created_at) VALUES (:title, :channel, :url, :tag, NOW())"
-    db.session.execute(sql, {"title":title, "channel":channel, "url":url, "tag":tag})
+def add_new_video(title, channel, url, owner, tag=[]):
+    sql = "INSERT INTO video (title, channel, url, tag, created_at, owner) VALUES (:title, :channel, :url, :tag, NOW(), :owner)"
+    db.session.execute(sql, {"title":title, "channel":channel, "url":url, "tag":tag, "owner":owner})
     db.session.commit()
     return True
 

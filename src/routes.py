@@ -76,7 +76,7 @@ def new_blog():
         url = request.form["url"]
         tag = request.form["tag"]
         tag = [t.strip() for t in tag.split(";")]
-        if blogs.add_new_blog(title, author, url, tag):
+        if blogs.add_new_blog(title, author, url, user.get_id(), tag):
             return redirect("/")
         else:
             return redirect("/new_blog")
@@ -94,7 +94,7 @@ def new_video():
         url = request.form["url"]
         tag = request.form["tag"]
         tag = [t.strip() for t in tag.split(";")]
-        if videos.add_new_video(title, channel, url, tag):
+        if videos.add_new_video(title, channel, url, user.get_id(), tag):
             return redirect("/")
         else:
             return redirect("/new_video")
@@ -112,7 +112,7 @@ def new_book():
         isbn = request.form["isbn"]
         tag = request.form["tag"]
         tag = [t.strip() for t in tag.split(";")]
-        if books.add_new_book(title, author, isbn, tag):
+        if books.add_new_book(title, author, isbn, user.get_id(), tag):
             return redirect("/")
         else:
             return redirect("/new_book")

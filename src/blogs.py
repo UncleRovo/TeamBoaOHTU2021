@@ -1,8 +1,8 @@
 from app import db
 
-def add_new_blog(title, author, url, tag=[]):
-    sql = "INSERT INTO blog (title, author, url, tag, created_at) VALUES (:title, :author, :url, :tag, NOW())"
-    db.session.execute(sql, {"title":title, "author":author, "url":url, "tag":tag})
+def add_new_blog(title, author, url, owner, tag=[]):
+    sql = "INSERT INTO blog (title, author, url, tag, created_at, owner) VALUES (:title, :author, :url, :tag, NOW(), :owner)"
+    db.session.execute(sql, {"title":title, "author":author, "url":url, "tag":tag, "owner":owner})
     db.session.commit()
     return True
 
