@@ -58,7 +58,7 @@ def new_article():
             doi = ""
             url = resource_id
 
-        if articles.add_new_article(title, author, doi, url, tag):
+        if articles.add_new_article(title, author, doi, url, user.get_id(), tag):
             return redirect("/")
         else: # error-sivu (?) lisättävä myöhemmin
             return redirect("/new_article")
