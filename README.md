@@ -55,3 +55,4 @@ Suorita projektin juurihakemistossa seuraavat komennot:
   
   ## License
   [MIT License](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/LICENSE)
+
