@@ -1,8 +1,8 @@
 from app import db
 
-def add_new_article(title, author, doi, url, tag=[]):
-    sql = "INSERT INTO article (title, author, doi, url, tag, created_at) VALUES (:title, :author, :doi, :url, :tag, NOW())"
-    db.session.execute(sql, {"title":title, "author":author, "doi":doi, "url":url, "tag":tag})
+def add_new_article(title, author, doi, url, owner, tag=[]):
+    sql = "INSERT INTO article (title, author, doi, url, tag, created_at, owner) VALUES (:title, :author, :doi, :url, :tag, NOW(), :owner)"
+    db.session.execute(sql, {"title":title, "author":author, "doi":doi, "url":url, "tag":tag, "owner":owner})
     db.session.commit()
     return True
 

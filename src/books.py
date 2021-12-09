@@ -1,8 +1,8 @@
 from app import db
 
-def add_new_book(title, author, isbn, tag=[]):
-    sql = "INSERT INTO book (title, author, isbn, tag, created_at) VALUES (:title, :author, :isbn, :tag, NOW())"
-    db.session.execute(sql, {"title":title, "author":author, "isbn":isbn, "tag":tag})
+def add_new_book(title, author, isbn, owner, tag=[]):
+    sql = "INSERT INTO book (title, author, isbn, tag, created_at, owner) VALUES (:title, :author, :isbn, :tag, NOW(), :owner)"
+    db.session.execute(sql, {"title":title, "author":author, "isbn":isbn, "tag":tag, "owner":owner})
     db.session.commit()
     return True
 
