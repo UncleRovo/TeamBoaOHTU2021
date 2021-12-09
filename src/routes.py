@@ -10,10 +10,11 @@ def index():
 @app.route("/browse")
 def browse():
     if (user.isLoggedIn()):
-        return render_template("browse.html", blogs=blogs.get_all(),
-                                          articles=articles.get_all(),
-                                          videos=videos.get_all(),
-                                          books=books.get_all())
+        u_id = user.get_id()
+        return render_template("browse.html", blogs=blogs.get_by_user(u_id),
+                                          articles=articles.get_by_user(u_id),
+                                          videos=videos.get_by_user(u_id),
+                                          books=books.get_by_user(u_id))
     return redirect("/")
 
 @app.route("/new_choose_type", methods=["GET", "POST"])
