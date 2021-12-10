@@ -10,11 +10,11 @@ Muokkaa - {{ item.title }}
 <form action={{ "/edit/article/" ~ item.id }} method="POST">
     <div class="article">
         Muokkaa lukuvinkkiä
-        <p>
+        <br>
         <p>Otsikko</p>
-        <input type="text" name="title" size="30" value={{ item.title }}>
+        <input type="text" name="title" size="30" value="{{ item.title }}">
         <p>Tekijä</p>
-        <input type="text" name="author" size="30" value={{ item.author }}>
+        <input type="text" name="author" size="30" value="{{ item.author }}">
         <br><br>
         <input type="radio" name="resource_id_type" value="doi" {% if item.doi %} checked {% endif %}> DOI</radio>
         <input type="radio" name="resource_id_type" value="url" {% if item.url %} checked {% endif %}> URL
@@ -22,7 +22,7 @@ Muokkaa - {{ item.title }}
         <input type="text" name="resource_id" size="30" {% if item.doi %} value={{ item.doi }} {% else %} value={{ item.url }} {% endif %}>
         <br>
         <p>Tagit (erota useampi tagi puolipisteellä)</p>
-        <input type="text" name="tag" size="30" value={{ tag }}>
+        <input type="text" name="tag" size="30" value="{{ tag }}"">
         <br>
 
         <input type="submit" value="tallenna">
@@ -35,16 +35,16 @@ Muokkaa - {{ item.title }}
 <form action={{ "/edit/blog/" ~ item.id }} method="POST">
     <div class="article">
         Muokkaa lukuvinkkiä
-        <p>
+        <br>
         <p>Otsikko</p>
-        <input type="text" name="title" size="30" value={{ item.title }}>
+        <input type="text" name="title" size="30" value="{{ item.title }}">
         <p>Tekijä</p>
-        <input type="text" name="author" size="30" value={{ item.author }}>
+        <input type="text" name="author" size="30" value="{{ item.author }}">
         <p>URL</p>
         <input type="text" name="url" size="30" value={{ item.url }}>
         <br>
         <p>Tagit (erota useampi tagi puolipisteellä)</p>
-        <input type="text" name="tag" size="30" value={{ tag }}>
+        <input type="text" name="tag" size="30" value="{{ tag }}">
         <br>
         <input type="submit" value="tallenna">
         <input type="reset" value="peruuta muutokset">
@@ -56,16 +56,16 @@ Muokkaa - {{ item.title }}
 <form action={{ "/edit/book/" ~ item.id }} method="POST">
     <div class="book">
         Muokkaa lukuvinkkiä
-        <p>
+        <br>
         <p>Otsikko</p>
-        <input type="text" name="title" size="30" value={{ item.title }}>
+        <input type="text" name="title" size="30" value="{{ item.title }}">
         <p>Tekijä</p>
-        <input type="text" name="author" size="30" value={{ item.author }}>
+        <input type="text" name="author" size="30" value="{{ item.author }}">
         <p>isbn</p>
         <input type="text" name="isbn" size="30" value={{ item.isbn }}>
         <br>
         <p>Tagit (erota useampi tagi puolipisteellä)</p>
-        <input type="text" name="tag" size="30" value={{ tag }}>
+        <input type="text" name="tag" size="30" value="{{ tag }}">
         <br>
         <input type="submit" value="tallenna">
         <input type="reset" value="peruuta muutokset">
@@ -77,16 +77,16 @@ Muokkaa - {{ item.title }}
 <form action={{ "/edit/video/" ~ item.id }} method="POST">
     <div class="article">
         Muokkaa videovinkkiä
-        <p>
+        <br>
         <p>Otsikko</p>
-        <input type="text" name="title" size="30" value={{ item.title }}>
+        <input type="text" name="title" size="30" value="{{ item.title }}">
         <p>Kanava</p>
-        <input type="text" name="channel" size="30" value={{ item.channel }}>
+        <input type="text" name="channel" size="30" value="{{ item.channel }}">
         <p>URL</p>
         <input type="text" name="url" size="30" value={{ item.url }}>
         <br>
         <p>Tagit (erota useampi tagi puolipisteellä)</p>
-        <input type="text" name="tag" size="30" value={{ tag }}>
+        <input type="text" name="tag" size="30" value="{{ tag }}">
         <br>
         <input type="submit" value="tallenna">
         <input type="reset" value="peruuta muutokset">
