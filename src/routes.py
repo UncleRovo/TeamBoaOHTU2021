@@ -42,15 +42,6 @@ def search(type, key):
         if type == 'book':
             return render_template("browse.html", books=books.search(key, u_id))
 
-#@app.route("/search/<key>")
-#def search(key):
-#    if (user.isLoggedIn()):
-#        u_id = user.get_id()
-#        return render_template("browse.html", blogs=blogs.search(key, u_id),
-#                                          articles=articles.search(key, u_id),
-#                                          videos=videos.search(key, u_id),
-#                                          books=books.search(key, u_id))
-
 @app.route("/new_choose_type", methods=["GET", "POST"])
 def new_choose_type():
     if (user.isLoggedIn() == False):
