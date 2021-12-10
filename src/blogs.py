@@ -30,6 +30,12 @@ def hide(item_id):
     db.session.commit()
     return True
 
+def search(key, owner):
+    sql = "SELECT * FROM blog WHERE (visible=1 AND owner=:owner) AND (title ILIKE :key OR author ILIKE :key OR :key_tag = ANY(tag))"
+    result = db.session.execute(sql, {"owner":owner, "key":"%" + key + "%", "key_tag":key})
+    blogs = result.fetchall()
+    return blogs
+
 def update(id, attributes):
     if not attributes:
         return False
