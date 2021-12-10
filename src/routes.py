@@ -18,6 +18,8 @@ def browse():
                                           books=books.get_by_user(u_id))
         if request.method == "POST":
             key = request.form.get("key")
+            if key == "":
+                return redirect("/browse")
             return redirect(f"/search/{key}")
     return redirect("/")
 
