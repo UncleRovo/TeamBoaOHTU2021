@@ -4,12 +4,16 @@
     <h2>Tallennetut lukuvinkit</h2>
     <hr>
     <p>
-        <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/new_choose_type">Lisää vinkki</a></span> <span>
-            <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/">etusivu</a>
-        </span>
-        </b>
+        <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/new_choose_type">Lisää vinkki</a>
+        <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/">etusivu</a>
+        <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/browse">Näytä kaikki vinkit</a>
     </p>
 
+    <form action="/browse" method="POST">
+        <p>Hae vinkkiä</p>
+        <input type="text" name="key" size="30">
+        <input type="submit" name=button value="Hae">
+    </form>
 
     {% if blogs %}
     <h2>blogit</h2>

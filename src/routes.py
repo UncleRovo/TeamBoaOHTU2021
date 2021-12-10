@@ -7,15 +7,25 @@ import articles, blogs, user, videos, books
 def index():
     return render_template("index.html")
 
-@app.route("/browse")
+@app.route("/browse", methods=["GET", "POST"])
 def browse():
     if (user.isLoggedIn()):
         u_id = user.get_id()
-        return render_template("browse.html", blogs=blogs.get_by_user(u_id),
+        if request.method == "GET":
+            return render_template("browse.html", blogs=blogs.get_by_user(u_id),
                                           articles=articles.get_by_user(u_id),
                                           videos=videos.get_by_user(u_id),
                                           books=books.get_by_user(u_id))
+        if request.method == "POST":
+            key = request.form.get("key")
+            return redirect(f"/search/{key}")
     return redirect("/")
+
+@app.route("/search/<key>")
+def search(key):
+    if (user.isLoggedIn()):
+        u_id = user.get_id()
+        return render_template("browse.html", books=books.search(key,u_id))
 
 @app.route("/new_choose_type", methods=["GET", "POST"])
 def new_choose_type():

@@ -29,3 +29,9 @@ def hide(item_id):
     db.session.execute(sql, {"item_id":item_id})
     db.session.commit()
     return True
+
+def search(key, owner):
+    sql = "SELECT * FROM book WHERE (visible=1 AND owner=:owner) AND (title ILIKE :key OR author ILIKE :key OR :key_tag = ANY(tag))"
+    result = db.session.execute(sql, {"owner":owner, "key":"%" + key + "%", "key_tag":key})
+    book = result.fetchall()
+    return book
