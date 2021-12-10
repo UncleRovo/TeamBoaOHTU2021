@@ -29,3 +29,20 @@ def hide(item_id):
     db.session.execute(sql, {"item_id":item_id})
     db.session.commit()
     return True
+
+def update(id, attributes):
+    if not attributes:
+        return False
+    try:
+        tag = attributes["tag"]
+        tag = [t.strip() for t in tag.split(";")]
+        sql = "UPDATE blog SET title=:title, author=:author, url=:url, tag=:tag WHERE id=:id"
+        db.session.execute(sql, {"title": attributes["title"],
+                                "author": attributes["author"],
+                                "url": attributes["url"],
+                                "tag": tag,
+                                "id": id})
+        db.session.commit()
+    except:
+        return False
+    return True

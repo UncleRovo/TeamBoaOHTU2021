@@ -176,22 +176,26 @@ def hide_item():
 
 @app.route("/edit/<string:item_type>/<int:id>", methods=["GET", "POST"])
 def edit_item(item_type, id):
+    print("edit",item_type,id)
     if not user.isLoggedIn():
         return redirect("/")
-
     get_item = {"article": articles.get_one(id),
                 "blog": blogs.get_one(id),
                 "book": books.get_one(id),
                 "video": videos.get_one(id)}                
     item = get_item[item_type]
-    tag = ";".join(item.tag)
+    if not item.owner == user.get_id():
+        return redirect("/")
+
     if request.method == "GET":
+        tag = ";".join(item.tag)
         return render_template("edit_item.html", item_type=item_type, item=item, tag=tag, id=id)
 
-    if request.method == "POST":
-        print(f"muokkaa {item_type} (id {id}):")
-        items = request.form.items()
-        for key, value in items:
-            print(f"{key}: {value}")
-        
+    if request.method == "POST":  
+        update_item = {"article": articles.update(id, request.form),
+                       "blog": blogs.update(id, request.form),
+                       "book": books.update(id, request.form),
+                       "video": videos.update(id, request.form)}
+        success = update_item[item_type]
+        print("update succesful:", success)
     return redirect("/browse")
