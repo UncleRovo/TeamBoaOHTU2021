@@ -9,9 +9,16 @@
         <a style="padding: 1rem; color: rgb(0, 0, 100)" href="/browse">Näytä kaikki vinkit</a>
     </p>
 
+    <br>
     <form action="/browse" method="POST">
-        <p>Hae vinkkiä</p>
-        <input type="text" name="key" size="30">
+        <input type="text" name="key" placeholder="otsikko, kirjoittaja, kanava, tägi..." size="30">
+        <select name="type">
+            <option value="" disabled selected>Kaikki</option>
+            <option value="blog">Blogi</option>
+            <option value="article">Artikkeli</option>
+            <option value="video">Video</option>
+            <option value="book">Kirja</option>
+        </select>
         <input type="submit" name=button value="Hae">
     </form>
 
