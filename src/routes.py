@@ -20,7 +20,16 @@ def browse():
             key = request.form.get("key")
             type = request.form.get("type")
             if key == "":
-                return redirect("/browse")
+                if type == 'all':
+                    return redirect("/browse")
+                if type == 'blog':
+                    return render_template("browse.html", blogs=blogs.get_by_user(u_id))
+                if type == 'article':
+                    return render_template("browse.html", articles=articles.get_by_user(u_id))
+                if type == 'video':
+                    return render_template("browse.html", videos=videos.get_by_user(u_id))
+                if type == 'book':
+                    return render_template("browse.html", books=books.get_by_user(u_id))                   
             return redirect(f"/search/{type}/{key}")
     return redirect("/")
 
