@@ -27,11 +27,15 @@
 
 Lataa koodi kloonaamalla projekti tai lataamalla ja purkamalla releasessa oleva lähdekoodi. 
 
+Asenna projektin riippuvuudet komennolla `poetry install`. Paikallinen käyttö edellyttää, että koneellasi on asennettuna postgresql ja, että se on toiminnassa. 
+
 Tietokanta tulee alustaa ennen sovelluksen käyttöä käskyllä
-`psql < schema.sql`.
+`psql < schema.sql` (tai komennolla `poetry run invoke initialize`).
 
 Jotta kirjautuminen ja rekisteröityminen toimisi, tulee sovelluksen juureen luoda tiedosto .env, jonka sisälle on määriteltävä haluamansa salainen avain, tyyliin
 `SECRET_KEY=haluamasisalainenmerkkijonotähän`.
+
+Tämän jälkeen voit käynnistää sovelluksen ajamalla komennon `poetry run invoke start`. 
 
 ---
 
