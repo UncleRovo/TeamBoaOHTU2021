@@ -18,20 +18,38 @@ def browse():
                                           books=books.get_by_user(u_id))
         if request.method == "POST":
             key = request.form.get("key")
-            # type = request.form.get("type") no functionality yet!
+            type = request.form.get("type")
             if key == "":
                 return redirect("/browse")
-            return redirect(f"/search/{key}")
+            return redirect(f"/search/{type}/{key}")
     return redirect("/")
 
-@app.route("/search/<key>")
-def search(key):
+@app.route("/search/<type>/<key>")
+def search(type, key):
     if (user.isLoggedIn()):
         u_id = user.get_id()
-        return render_template("browse.html", blogs=blogs.search(key, u_id),
+        if type == 'all':
+            return render_template("browse.html", blogs=blogs.search(key, u_id),
                                           articles=articles.search(key, u_id),
                                           videos=videos.search(key, u_id),
                                           books=books.search(key, u_id))
+        if type == 'blog':
+            return render_template("browse.html", blogs=blogs.search(key, u_id))
+        if type == 'article':
+            return render_template("browse.html", articles=articles.search(key, u_id))
+        if type == 'video':
+            return render_template("browse.html", videos=videos.search(key, u_id))
+        if type == 'book':
+            return render_template("browse.html", books=books.search(key, u_id))
+
+#@app.route("/search/<key>")
+#def search(key):
+#    if (user.isLoggedIn()):
+#        u_id = user.get_id()
+#        return render_template("browse.html", blogs=blogs.search(key, u_id),
+#                                          articles=articles.search(key, u_id),
+#                                          videos=videos.search(key, u_id),
+#                                          books=books.search(key, u_id))
 
 @app.route("/new_choose_type", methods=["GET", "POST"])
 def new_choose_type():
