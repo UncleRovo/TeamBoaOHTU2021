@@ -35,3 +35,20 @@ def search(key, owner):
     result = db.session.execute(sql, {"owner":owner, "key":"%" + key + "%", "key_tag":key})
     book = result.fetchall()
     return book
+
+def update(id, attributes):
+    if not attributes:
+        return False
+    try:
+        tag = attributes["tag"]
+        tag = [t.strip() for t in tag.split(";")]
+        sql = "UPDATE book SET title=:title, author=:author, isbn=:isbn, tag=:tag WHERE id=:id"
+        db.session.execute(sql, {"title": attributes["title"],
+                                "author": attributes["author"],
+                                "isbn": attributes["isbn"],
+                                "tag": tag,
+                                "id": id})
+        db.session.commit()
+    except:
+        return False
+    return True
