@@ -45,3 +45,15 @@ class TestArticle(unittest.TestCase):
         tag = result.fetchone()[0]
 
         self.assertListEqual(tag, ["tag1", "tag2", "tag3"])
+        
+    def test_get_article_by_user(self):
+        result = articles.get_by_user(1)
+        
+        passTest = True
+        
+        #at the moment the 'owner' column is found at index 6. May be subject to change
+        for article in result:
+            if article[6] != 1:
+                passTest = False
+                break
+        self.assertEqual(passTest, True)

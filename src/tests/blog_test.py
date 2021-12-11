@@ -46,3 +46,15 @@ class TestArticle(unittest.TestCase):
 
         self.assertListEqual(tag, ["tag1", "tag2", "tag3"])
         
+    def test_get_blog_by_user(self):
+        result = blogs.get_by_user(1)
+        
+        passTest = True
+        
+        #at the moment the 'owner' column is found at index 5. May be subject to change
+        for blog in result:
+            if blog[5] != 1:
+                passTest = False
+                break
+        self.assertEqual(passTest, True)
+        
