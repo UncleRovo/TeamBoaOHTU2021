@@ -53,7 +53,7 @@ def search(type, key):
 
 @app.route("/new_choose_type", methods=["GET", "POST"])
 def new_choose_type():
-    if user.isLoggedIn() == False:
+    if not user.isLoggedIn():
         return redirect("/")
 
     if request.method == "GET":
@@ -73,7 +73,7 @@ def new_choose_type():
 
 @app.route("/new_article", methods=["GET", "POST"])
 def new_article():
-    if user.isLoggedIn() == False:
+    if not user.isLoggedIn():
         return redirect("/")
         
     if request.method == "GET":
@@ -100,7 +100,7 @@ def new_article():
 
 @app.route("/new_blog", methods=["GET", "POST"])
 def new_blog():
-    if user.isLoggedIn() == False:
+    if not user.isLoggedIn():
         return redirect("/")
 
     if request.method == "GET":
@@ -118,7 +118,7 @@ def new_blog():
 
 @app.route("/new_video", methods=["GET", "POST"])
 def new_video():
-    if user.isLoggedIn() == False:
+    if not user.isLoggedIn():
         return redirect("/")
 
     if request.method == "GET":
@@ -136,7 +136,7 @@ def new_video():
 
 @app.route("/new_book", methods=["GET", "POST"])
 def new_book():
-    if user.isLoggedIn() == False:
+    if not user.isLoggedIn():
         return redirect("/")
 
     if request.method == "GET":
@@ -190,7 +190,7 @@ def logout():
 
 @app.route("/hide_item", methods=["GET", "POST"])
 def hide_item():
-    if user.isLoggedIn() == False:
+    if not user.isLoggedIn():
         return redirect("/")
 
     if request.method == "GET":
