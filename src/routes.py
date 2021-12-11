@@ -9,7 +9,7 @@ def index():
 
 @app.route("/browse", methods=["GET", "POST"])
 def browse():
-    if (user.isLoggedIn()):
+    if user.isLoggedIn():
         u_id = user.get_id()
         if request.method == "GET":
             return render_template("browse.html", blogs=blogs.get_by_user(u_id),
@@ -20,42 +20,42 @@ def browse():
             key = request.form.get("key")
             type = request.form.get("type")
             if key == "":
-                if type == 'all':
+                if type == "all":
                     return redirect("/browse")
-                if type == 'blog':
+                if type == "blog":
                     return render_template("browse.html", blogs=blogs.get_by_user(u_id))
-                if type == 'article':
+                if type == "article":
                     return render_template("browse.html", articles=articles.get_by_user(u_id))
-                if type == 'video':
+                if type == "video":
                     return render_template("browse.html", videos=videos.get_by_user(u_id))
-                if type == 'book':
-                    return render_template("browse.html", books=books.get_by_user(u_id))                   
+                if type == "book":
+                    return render_template("browse.html", books=books.get_by_user(u_id))
             return redirect(f"/search/{type}/{key}")
     return redirect("/")
 
 @app.route("/search/<type>/<key>")
 def search(type, key):
-    if (user.isLoggedIn()):
+    if user.isLoggedIn():
         u_id = user.get_id()
-        if type == 'all':
+        if type == "all":
             return render_template("browse.html", blogs=blogs.search(key, u_id),
                                           articles=articles.search(key, u_id),
                                           videos=videos.search(key, u_id),
                                           books=books.search(key, u_id))
-        if type == 'blog':
+        if type == "blog":
             return render_template("browse.html", blogs=blogs.search(key, u_id))
-        if type == 'article':
+        if type == "article":
             return render_template("browse.html", articles=articles.search(key, u_id))
-        if type == 'video':
+        if type == "video":
             return render_template("browse.html", videos=videos.search(key, u_id))
-        if type == 'book':
+        if type == "book":
             return render_template("browse.html", books=books.search(key, u_id))
 
 @app.route("/new_choose_type", methods=["GET", "POST"])
 def new_choose_type():
-    if (user.isLoggedIn() == False):
+    if user.isLoggedIn() == False:
         return redirect("/")
-        
+
     if request.method == "GET":
         return render_template("new_choose_type.html")
     if request.method == "POST":
@@ -73,7 +73,7 @@ def new_choose_type():
 
 @app.route("/new_article", methods=["GET", "POST"])
 def new_article():
-    if (user.isLoggedIn() == False):
+    if user.isLoggedIn() == False:
         return redirect("/")
         
     if request.method == "GET":
@@ -100,9 +100,9 @@ def new_article():
 
 @app.route("/new_blog", methods=["GET", "POST"])
 def new_blog():
-    if (user.isLoggedIn() == False):
+    if user.isLoggedIn() == False:
         return redirect("/")
-        
+
     if request.method == "GET":
         return render_template("new_blog.html")
     if request.method == "POST":
@@ -118,9 +118,9 @@ def new_blog():
 
 @app.route("/new_video", methods=["GET", "POST"])
 def new_video():
-    if (user.isLoggedIn() == False):
+    if user.isLoggedIn() == False:
         return redirect("/")
-        
+
     if request.method == "GET":
         return render_template("new_video.html")
     if request.method == "POST":
@@ -136,9 +136,9 @@ def new_video():
 
 @app.route("/new_book", methods=["GET", "POST"])
 def new_book():
-    if (user.isLoggedIn() == False):
+    if user.isLoggedIn() == False:
         return redirect("/")
-        
+
     if request.method == "GET":
         return render_template("new_book.html")
     if request.method == "POST":
@@ -154,9 +154,9 @@ def new_book():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if (user.isLoggedIn()):
+    if user.isLoggedIn():
         return redirect("/")
-        
+
     if request.method == "GET":
         return render_template("register.html")
     if request.method == "POST":
@@ -170,9 +170,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if (user.isLoggedIn()):
+    if user.isLoggedIn():
         return redirect("/")
-        
+
     if request.method == "GET":
         return render_template("login.html")
     if request.method == "POST":
@@ -190,9 +190,9 @@ def logout():
 
 @app.route("/hide_item", methods=["GET", "POST"])
 def hide_item():
-    if (user.isLoggedIn() == False):
+    if user.isLoggedIn() == False:
         return redirect("/")
-        
+
     if request.method == "GET":
         return redirect("/browse")
     if request.method == "POST":
@@ -216,7 +216,7 @@ def edit_item(item_type, id):
     get_item = {"article": articles.get_one(id),
                 "blog": blogs.get_one(id),
                 "book": books.get_one(id),
-                "video": videos.get_one(id)}                
+                "video": videos.get_one(id)}
     item = get_item[item_type]
     if not item.owner == user.get_id():
         return redirect("/")
@@ -225,7 +225,7 @@ def edit_item(item_type, id):
         tag = ";".join(item.tag)
         return render_template("edit_item.html", item_type=item_type, item=item, tag=tag, id=id)
 
-    if request.method == "POST":  
+    if request.method == "POST":
         update_item = {"article": articles.update(id, request.form),
                        "blog": blogs.update(id, request.form),
                        "book": books.update(id, request.form),

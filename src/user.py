@@ -30,7 +30,7 @@ def register(username, password):
 def logout():
     session.clear()
     return True
-    
+
 def isLoggedIn():
     try:
         session["username"]
@@ -38,6 +38,6 @@ def isLoggedIn():
         return True
     except:
         return False
-        
+
 def get_id():
     return session["user_id"]

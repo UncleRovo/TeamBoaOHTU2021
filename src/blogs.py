@@ -1,7 +1,8 @@
 from app import db
 
 def add_new_blog(title, author, url, owner, tag=[]):
-    sql = "INSERT INTO blog (title, author, url, tag, created_at, owner) VALUES (:title, :author, :url, :tag, NOW(), :owner)"
+    sql = "INSERT INTO blog (title, author, url, tag, created_at, owner) \
+        VALUES (:title, :author, :url, :tag, NOW(), :owner)"
     db.session.execute(sql, {"title":title, "author":author, "url":url, "tag":tag, "owner":owner})
     db.session.commit()
     return True
@@ -31,7 +32,8 @@ def hide(item_id):
     return True
 
 def search(key, owner):
-    sql = "SELECT * FROM blog WHERE (visible=1 AND owner=:owner) AND (title ILIKE :key OR author ILIKE :key OR :key_tag = ANY(tag))"
+    sql = "SELECT * FROM blog WHERE (visible=1 AND owner=:owner) \
+        AND (title ILIKE :key OR author ILIKE :key OR :key_tag = ANY(tag))"
     result = db.session.execute(sql, {"owner":owner, "key":"%" + key + "%", "key_tag":key})
     blogs = result.fetchall()
     return blogs

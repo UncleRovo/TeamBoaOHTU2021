@@ -1,7 +1,8 @@
 from app import db
 
 def add_new_video(title, channel, url, owner, tag=[]):
-    sql = "INSERT INTO video (title, channel, url, tag, created_at, owner) VALUES (:title, :channel, :url, :tag, NOW(), :owner)"
+    sql = "INSERT INTO video (title, channel, url, tag, created_at, owner) \
+        VALUES (:title, :channel, :url, :tag, NOW(), :owner)"
     db.session.execute(sql, {"title":title, "channel":channel, "url":url, "tag":tag, "owner":owner})
     db.session.commit()
     return True
@@ -11,7 +12,7 @@ def get_all():
     result = db.session.execute(sql)
     videos = result.fetchall()
     return videos
-    
+
 def get_by_user(owner):
     sql = "SELECT * FROM video WHERE visible=1 AND owner = :owner"
     result = db.session.execute(sql, {"owner":owner})
@@ -31,7 +32,8 @@ def hide(item_id):
     return True
 
 def search(key, owner):
-    sql = "SELECT * FROM video WHERE (visible=1 AND owner=:owner) AND (title ILIKE :key OR channel ILIKE :key OR :key_tag = ANY(tag))"
+    sql = "SELECT * FROM video WHERE (visible=1 AND owner=:owner) AND (title ILIKE :key OR channel \
+        ILIKE :key OR :key_tag = ANY(tag))"
     result = db.session.execute(sql, {"owner":owner, "key":"%" + key + "%", "key_tag":key})
     videos = result.fetchall()
     return videos
