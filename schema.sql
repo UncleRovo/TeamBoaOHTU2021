@@ -60,6 +60,14 @@ CREATE TABLE video (
 
 
 -- Some inserts into db so that there is sample data
+INSERT INTO users (
+  username, 
+  password
+  ) VALUES (
+    'Kasper123', 
+    'pbkdf2:sha256:260000$parSsKzDRoGdhj71$b128259b1356b0a4aef828b08b15fcf8dcb5a98167908731770eed68b2dc1a63'
+  );
+
 INSERT INTO article (
   title, 
   author, 

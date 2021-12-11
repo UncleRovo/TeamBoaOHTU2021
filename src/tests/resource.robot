@@ -3,8 +3,8 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${SERVER}  localhost:5000
-${BROWSER}  chrome
-${DELAY}  0.5 seconds
+${BROWSER}  headlesschrome
+${DELAY}  0 seconds
 ${HOME URL}  http://${SERVER}
 ${BROWSE URL}  http://${SERVER}/browse
 ${NEW_CHOOSE_TYPE URL}  http://${SERVER}/new_choose_type
@@ -19,10 +19,10 @@ Open And Configure Browser And Register User
     Go To Home Page
     Click Link  Rekisteröi uusi käyttäjä
     Register A New User Page Should Be Open
-    Set Username  Kasper123
-    Set Password  Jesper123
+    Set Username  Kasper_uusi_123
+    Set Password  Jesper_uusi_123
     Submit Registration
-    Register Should Succeed  Olet kirjautunut käyttäjätunnuksella: Kasper123
+    Register Should Succeed  Olet kirjautunut käyttäjätunnuksella: Kasper_uusi_123
 
 Open And Configure Browser And Login User
     Open Browser  browser=${BROWSER}
