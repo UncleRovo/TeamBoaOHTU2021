@@ -1,5 +1,10 @@
 {% extends "layout.html" %}
 {% block content%}
+
+{% if message %}
+Virhe: {{ message }}
+{% endif %}
+
 <form action="/new_article" method="POST">
     <div class="article">
         Lisää uusi <b>artikkeli</b> lukuvinkkikirjastoon.
