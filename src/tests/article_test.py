@@ -16,6 +16,11 @@ class TestArticle(unittest.TestCase):
 
         articles.add_new_article("Testing stuff", "T. Esting", "10.9876/54321", "", 1)
         self.assertEqual(len(articles.get_all()), amount + 1)
+    
+    def test_retrieve_one_article_with_right_information(self):
+        article = articles.get_one(1)
+        self.assertEqual(article.author, "James B. Rew")
+        self.assertEqual(article.title, "How to brew a cup of coffee")
 
     def test_hide_article(self):
         articles.add_new_article("Testi", "Minä", "", "www.testi.fi", 1)
@@ -57,3 +62,7 @@ class TestArticle(unittest.TestCase):
                 passTest = False
                 break
         self.assertEqual(passTest, True)
+    
+    def test_search_article_by_word_returns_right_information(self):
+        searched_articles = articles.search("kirjasto", 1)
+        self.assertEqual(searched_articles[0].author, "Helsinki")
