@@ -173,6 +173,8 @@ def register():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+        if username == "" or password == "":
+            return render_template("/register.html", message="Kenttää ei voi jättää tyhjäksi")
         if user.register(username, password):
             if user.login(username, password):
                 return redirect("/")
