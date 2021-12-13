@@ -24,4 +24,4 @@ jobs:
         run: pip install pylint
       - name: Analysing the code with pylint
         run: |
-         find . -name 'src' -exec pylint {} \;
+         find . -name 'src' -exec pylint --rcfile=".pylintrc" {} \;
