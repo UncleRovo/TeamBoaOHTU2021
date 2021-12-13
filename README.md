@@ -57,15 +57,15 @@ Coverage-raportin voit nähdä myös paikallisesti omalla koneellasi. Tee seuraa
 <p>
 1. Kloonaa tämä projekti GitHubista omalle koneellesi (<b>git clone git@github.com:UncleRovo/TeamBoaOHTU2021.git</b>)
 <p>
-1. Kirjoita toiseen terminaali-ikkunaan <b>start-pg.sh</b> ja jätä se taustalle.
+2. Kirjoita toiseen terminaali-ikkunaan <b>start-pg.sh</b> ja jätä se taustalle.
 
 Suorita projektin juurihakemistossa seuraavat komennot:
 <p>
-1. <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
+3. <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
 <p>
-1. <b>poetry run invoke initialize</b> (alustaa tietokannann)
+4. <b>poetry run invoke initialize</b> (alustaa tietokannann)
 <p>
-1. <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
+5. <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
 
   ---
   
