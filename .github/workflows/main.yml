@@ -20,8 +20,5 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
-      - name: Install pylint
-        run: pip install pylint
-      - name: Analysing the code with pylint
-        run: |
-         find . -name '*.py' -exec pylint {} \;
+      - name: Run lint
+        run: poetry run pylint src --rcfile=.pylintrc
