@@ -9,6 +9,11 @@ class TestArticle(unittest.TestCase):
     def test_blog_added_to_database(self):
         success = blogs.add_new_blog("ABC", "Virtanen", "www.abc.fi", 1)
         self.assertEqual(success, True)
+    
+    def test_retrieve_one_blog_with_right_information(self):
+        blog = blogs.get_one(1)
+        self.assertEqual(blog.author, "blogger")
+        self.assertEqual(blog.title, "Building blogs")
 
     def test_all_blogs_fetched_from_database(self):
         amount = len(blogs.get_all())
@@ -45,4 +50,20 @@ class TestArticle(unittest.TestCase):
         tag = result.fetchone()[0]
 
         self.assertListEqual(tag, ["tag1", "tag2", "tag3"])
+        
+    def test_get_blog_by_user(self):
+        result = blogs.get_by_user(1)
+        
+        passTest = True
+        
+        #at the moment the 'owner' column is found at index 5. May be subject to change
+        for blog in result:
+            if blog[5] != 1:
+                passTest = False
+                break
+        self.assertEqual(passTest, True)
+    
+    def test_search_blog_by_word_returns_right_information(self):
+        searched_blogs = blogs.search("build", 1)
+        self.assertEqual(searched_blogs[0].author, "blogger")
         

@@ -93,9 +93,11 @@ def new_article():
             doi = ""
             url = resource_id
 
-        if articles.add_new_article(title, author, doi, url, user.get_id(), tag):
+        if title == "" or author == "" or resource_id == "":
+            return render_template("/new_article.html", message="Täytä tarvittavat tiedot")
+        elif articles.add_new_article(title, author, doi, url, user.get_id(), tag):
             return redirect("/")
-        else: # error-sivu (?) lisättävä myöhemmin
+        else:
             return redirect("/new_article")
 
 @app.route("/new_blog", methods=["GET", "POST"])
@@ -111,7 +113,10 @@ def new_blog():
         url = request.form["url"]
         tag = request.form["tag"]
         tag = [t.strip() for t in tag.split(";")]
-        if blogs.add_new_blog(title, author, url, user.get_id(), tag):
+
+        if title == "" or author == "" or url == "":
+            return render_template("/new_blog.html", message="Täytä tarvittavat tiedot")
+        elif blogs.add_new_blog(title, author, url, user.get_id(), tag):
             return redirect("/")
         else:
             return redirect("/new_blog")
@@ -129,7 +134,10 @@ def new_video():
         url = request.form["url"]
         tag = request.form["tag"]
         tag = [t.strip() for t in tag.split(";")]
-        if videos.add_new_video(title, channel, url, user.get_id(), tag):
+
+        if title == "" or channel == "" or url == "":
+            return render_template("/new_video.html", message="Täytä tarvittavat tiedot")
+        elif videos.add_new_video(title, channel, url, user.get_id(), tag):
             return redirect("/")
         else:
             return redirect("/new_video")
@@ -147,7 +155,10 @@ def new_book():
         isbn = request.form["isbn"]
         tag = request.form["tag"]
         tag = [t.strip() for t in tag.split(";")]
-        if books.add_new_book(title, author, isbn, user.get_id(), tag):
+
+        if title == "" or author == "" or isbn == "":
+            return render_template("/new_book.html", message="Täytä tarvittavat tiedot")
+        elif books.add_new_book(title, author, isbn, user.get_id(), tag):
             return redirect("/")
         else:
             return redirect("/new_book")
@@ -162,6 +173,8 @@ def register():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+        if username == "" or password == "":
+            return render_template("/register.html", message="Kenttää ei voi jättää tyhjäksi")
         if user.register(username, password):
             if user.login(username, password):
                 return redirect("/")

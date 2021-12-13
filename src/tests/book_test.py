@@ -13,6 +13,10 @@ class TestBook(unittest.TestCase):
         books.add_new_book("Outlander", "Diana Gabaldon", "0440212561", 1)
         self.assertGreaterEqual(amount + 1, 2)
 
+    def test_retrieve_one_book_with_right_information(self):
+        book = books.get_one(1)
+        self.assertEqual(book.author, "J.R.R. Tolkien")
+        self.assertEqual(book.title, "The Lord of the Rings")
 
     def test_book_added_to_database(self):
         success = books.add_new_book("Pride and Prejudice", "Jane Austen", "9780141439518", 1)
@@ -46,4 +50,20 @@ class TestBook(unittest.TestCase):
         tag = result.fetchone()[0]
 
         self.assertListEqual(tag, ["tag1", "tag2", "tag3"])
+        
+    def test_get_book_by_user(self):
+        result = books.get_by_user(1)
+        
+        passTest = True
+        
+        #at the moment the 'owner' column is found at index 5. May be subject to change
+        for book in result:
+            if book[5] != 1:
+                passTest = False
+                break
+        self.assertEqual(passTest, True)
+    
+    def test_search_book_by_word_returns_right_information(self):
+        searched_books = books.search("lord", 1)
+        self.assertEqual(searched_books[0].author, "J.R.R. Tolkien")
         

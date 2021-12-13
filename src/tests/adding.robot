@@ -56,33 +56,3 @@ Add Book
     Click Button  Lisää
     Go To Browse Page
     Page Should Contain  Test book
-
-
-*** Keywords ***
-Set Type
-    [Arguments]  ${type_of_new}
-    Select From List By Value  name:type  ${type_of_new}
-
-Set Title
-    [Arguments]  ${title}
-    Input Text  title  ${title}
-
-Set Author
-    [Arguments]  ${author}
-    Input Text  author  ${author}
-
-Set Channel
-    [Arguments]  ${channel}
-    Input Text  channel  ${channel}
-
-Set URL
-    [Arguments]  ${url}
-    Input Text  url  ${url}
-
-Set Isbn
-    [Arguments]  ${isbn}
-    Input Text  isbn  ${isbn}
-
-Set Doi
-    [Arguments]  ${doi}
-    Input Text  resource_id  ${doi}
