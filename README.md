@@ -41,7 +41,17 @@ Tämän jälkeen voit käynnistää sovelluksen ajamalla komennon `poetry run in
 
 ## Testikattavuusraportti
 <p>
-Coverage-raportin voit nähdä paikallisesti omalla koneellasi. Tee seuraavasti:
+Linkit testikattavuusraportteihin:
+* [Coverage report (main)](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage_report.pdf)
+Detailed coverage reports:
+* [app.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_app.py_%2076%25.pdf)
+* [articles.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_articles.py_%2094%25.pdf)
+* [blogs.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_blogs.py_%20100%25.pdf)
+* [books.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_books.py_%20100%25.pdf)
+* [user.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_user.py_%2057%25.pdf)
+* [videos.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_videos.py_%20100%25.pdf)
+<p>
+Coverage-raportin voit nähdä myös paikallisesti omalla koneellasi. Tee seuraavasti:
 <p>
 1) Kloonaa tämä projekti GitHubista omalle koneellesi (<b>git clone git@github.com:UncleRovo/TeamBoaOHTU2021.git</b>)
 <p>
