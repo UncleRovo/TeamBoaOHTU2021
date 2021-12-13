@@ -76,4 +76,13 @@ class TestArticle(unittest.TestCase):
         videos.update(id, attributes)
 
         video = videos.get_one(id)
-        self.assertEqual(video.channel, "Terhin testikanava") 
+        self.assertEqual(video.channel, "Terhin testikanava")
+
+    def test_update_video_with_no_attributes(self):
+        success = videos.update(1, None)
+        self.assertFalse(success)
+
+    def test_update_video_with_invalid_attributes(self):
+        success = videos.update(1, {"title": "Terhin testivideo",
+                                    "author": "Terhi Testaaja"})
+        self.assertFalse(success)

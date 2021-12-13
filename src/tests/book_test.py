@@ -79,4 +79,13 @@ class TestBook(unittest.TestCase):
         books.update(id, attributes)
 
         book = books.get_one(id)
-        self.assertEqual(book.author, "Terhi Testaaja") 
+        self.assertEqual(book.author, "Terhi Testaaja")
+
+    def test_update_book_with_no_attributes(self):
+        success = books.update(1, None)
+        self.assertFalse(success)
+
+    def test_update_book_with_invalid_attributes(self):
+        success = books.update(1, {"author": "Terhi Testaaja",
+                                   "channel": "Terhin testikanava"})
+        self.assertFalse(success)

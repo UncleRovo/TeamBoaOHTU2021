@@ -79,4 +79,13 @@ class TestArticle(unittest.TestCase):
         blogs.update(id, attributes)
 
         blog = blogs.get_one(id)
-        self.assertEqual(blog.author, "Terhi Testaaja")        
+        self.assertEqual(blog.author, "Terhi Testaaja")
+
+    def test_update_blog_with_no_attributes(self):
+        success = blogs.update(1, None)
+        self.assertFalse(success)
+
+    def test_update_blog_with_invalid_attributes(self):
+        success = blogs.update(1, {"author": "Terhi Testaaja",
+                                   "isbn": 12345})
+        self.assertFalse(success)
