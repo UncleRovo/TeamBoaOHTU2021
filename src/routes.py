@@ -210,7 +210,6 @@ def hide_item():
 
 @app.route("/edit/<string:item_type>/<int:id>", methods=["GET", "POST"])
 def edit_item(item_type, id):
-    print("edit",item_type,id)
     if not user.isLoggedIn():
         return redirect("/")
     get_item = {"article": articles.get_one(id),
@@ -222,7 +221,7 @@ def edit_item(item_type, id):
         return redirect("/")
 
     if request.method == "GET":
-        tag = ";".join(item.tag)
+        tag = "; ".join(item.tag)
         return render_template("edit_item.html", item_type=item_type, item=item, tag=tag, id=id)
 
     if request.method == "POST":
@@ -231,5 +230,4 @@ def edit_item(item_type, id):
                        "book": books.update(id, request.form),
                        "video": videos.update(id, request.form)}
         success = update_item[item_type]
-        print("update succesful:", success)
     return redirect("/browse")
