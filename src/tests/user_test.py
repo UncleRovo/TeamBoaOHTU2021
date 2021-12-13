@@ -16,7 +16,7 @@ class TestUser(unittest.TestCase):
     def test_login_works(self):
         query = user.login("testi_tepponen", "1234qwerty", True)
         self.assertEqual(query, True)
-        
+
     def test_isLoggedIn_without_login(self):
         logged = user.isLoggedIn()
         self.assertEqual(logged, False)

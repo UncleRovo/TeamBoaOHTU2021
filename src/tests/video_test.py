@@ -9,7 +9,7 @@ class TestArticle(unittest.TestCase):
     def test_retrieve_right_amount_of_videos_from_database(self):
         videos_original = videos.get_all()
         self.assertGreaterEqual(len(videos_original), 2)
-    
+
     def test_retrieve_one_video_with_right_information(self):
         video = videos.get_one(1)
         self.assertEqual(video.channel, "Kings and Generals")
@@ -47,19 +47,19 @@ class TestArticle(unittest.TestCase):
         tag = result.fetchone()[0]
 
         self.assertListEqual(tag, ["tag1", "tag2", "tag3"])
-        
+
     def test_get_video_by_user(self):
         result = videos.get_by_user(1)
-        
+
         passTest = True
-        
+
         #at the moment the 'owner' column is found at index 5. May be subject to change
         for video in result:
             if video[5] != 1:
                 passTest = False
                 break
         self.assertEqual(passTest, True)
-    
+
     def test_search_video_by_word_returns_right_information(self):
         searched_videos = videos.search("cute", 1)
         self.assertEqual(searched_videos[0].channel, "Rufus")

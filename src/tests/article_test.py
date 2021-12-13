@@ -16,7 +16,7 @@ class TestArticle(unittest.TestCase):
 
         articles.add_new_article("Testing stuff", "T. Esting", "10.9876/54321", "", 1)
         self.assertEqual(len(articles.get_all()), amount + 1)
-    
+
     def test_retrieve_one_article_with_right_information(self):
         article = articles.get_one(1)
         self.assertEqual(article.author, "James B. Rew")
@@ -50,19 +50,19 @@ class TestArticle(unittest.TestCase):
         tag = result.fetchone()[0]
 
         self.assertListEqual(tag, ["tag1", "tag2", "tag3"])
-        
+
     def test_get_article_by_user(self):
         result = articles.get_by_user(1)
-        
+
         passTest = True
-        
+
         #at the moment the 'owner' column is found at index 6. May be subject to change
         for article in result:
             if article[6] != 1:
                 passTest = False
                 break
         self.assertEqual(passTest, True)
-    
+
     def test_search_article_by_word_returns_right_information(self):
         searched_articles = articles.search("kirjasto", 1)
         self.assertEqual(searched_articles[0].author, "Helsinki")
