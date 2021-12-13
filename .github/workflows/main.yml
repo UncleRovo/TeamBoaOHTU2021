@@ -21,4 +21,4 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run lint
-        run: poetry run pylint src --rcfile=.pylintrc
+        run: poetry run pylint src
