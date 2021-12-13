@@ -39,10 +39,12 @@ Tämän jälkeen voit käynnistää sovelluksen ajamalla komennon `poetry run in
 
 ---
 
-## Testikattavuusraportti
-<p>
+## Testikattavuusraportti (unittests)
+
 Linkit testikattavuusraportteihin:
+
 * [Coverage report (main)](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage_report.pdf)
+
 Detailed coverage reports:
 * [app.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_app.py_%2076%25.pdf)
 * [articles.py](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/Coverage%20for%20src_articles.py_%2094%25.pdf)
@@ -53,17 +55,17 @@ Detailed coverage reports:
 <p>
 Coverage-raportin voit nähdä myös paikallisesti omalla koneellasi. Tee seuraavasti:
 <p>
-1) Kloonaa tämä projekti GitHubista omalle koneellesi (<b>git clone git@github.com:UncleRovo/TeamBoaOHTU2021.git</b>)
+1. Kloonaa tämä projekti GitHubista omalle koneellesi (<b>git clone git@github.com:UncleRovo/TeamBoaOHTU2021.git</b>)
 <p>
-2) Kirjoita toiseen terminaali-ikkunaan <b>start-pg.sh</b> ja jätä se taustalle.
+1. Kirjoita toiseen terminaali-ikkunaan <b>start-pg.sh</b> ja jätä se taustalle.
 
 Suorita projektin juurihakemistossa seuraavat komennot:
 <p>
-3) <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
+1. <b>Poetry install</b> (asenna riippuvuudet. Huomaa, että sinulla tulee olla Python-versio 3.8.12. Jos sinulla on muu versio, mutta ko. versio toivotuksi ensin pyproject.toml-tiedostossa)
 <p>
-4) <b>poetry run invoke initialize</b> (alustaa tietokannann)
+1. <b>poetry run invoke initialize</b> (alustaa tietokannann)
 <p>
-5) <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
+1. <b>poetry run invoke coverage</b> (luo testikattavuusraportin) > testikattavuusraportti on nimeltään "index.html"-tiedosto juurihakemiston kansiossa "htmlcov".
 
   ---
   
