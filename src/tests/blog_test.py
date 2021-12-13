@@ -67,3 +67,16 @@ class TestArticle(unittest.TestCase):
         searched_blogs = blogs.search("build", 1)
         self.assertEqual(searched_blogs[0].author, "blogger")
         
+    def test_update_blog(self):
+        blogs.add_new_blog("testiblogi", "Teppo Testaaja", "www.testi.fi", 1, [])
+        sql = "SELECT id FROM blog WHERE author='Teppo Testaaja'"
+        result = db.session.execute(sql)
+        id = result.fetchone().id
+        attributes = {"title": "testiblogi",
+                      "author": "Terhi Testaaja",
+                      "url": "www.testi.fi",
+                      "tag": ""}
+        blogs.update(id, attributes)
+
+        blog = blogs.get_one(id)
+        self.assertEqual(blog.author, "Terhi Testaaja")        

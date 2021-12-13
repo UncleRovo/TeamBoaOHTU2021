@@ -66,3 +66,18 @@ class TestArticle(unittest.TestCase):
     def test_search_article_by_word_returns_right_information(self):
         searched_articles = articles.search("kirjasto", 1)
         self.assertEqual(searched_articles[0].author, "Helsinki")
+
+    def test_update_article(self):
+        articles.add_new_article("testiartikkeli", "Teppo Testaaja", "", "www.testi.fi", 1, [])
+        sql = "SELECT id FROM article WHERE author='Teppo Testaaja'"
+        result = db.session.execute(sql)
+        id = result.fetchone().id
+        attributes = {"title": "testiartikkeli",
+                      "author": "Terhi Testaaja",
+                      "resource_id_type": "url",
+                      "resource_id": "www.testi.fi",
+                      "tag": ""}
+        articles.update(id, attributes)
+
+        article = articles.get_one(id)
+        self.assertEqual(article.author, "Terhi Testaaja")

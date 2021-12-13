@@ -67,3 +67,16 @@ class TestBook(unittest.TestCase):
         searched_books = books.search("lord", 1)
         self.assertEqual(searched_books[0].author, "J.R.R. Tolkien")
         
+    def test_update_book(self):
+        books.add_new_book("testikirja", "Teppo Testaaja", "12345", 1, [])
+        sql = "SELECT id FROM book WHERE author='Teppo Testaaja'"
+        result = db.session.execute(sql)
+        id = result.fetchone().id
+        attributes = {"title": "testikirja",
+                      "author": "Terhi Testaaja",
+                      "isbn": "12345",
+                      "tag": ""}
+        books.update(id, attributes)
+
+        book = books.get_one(id)
+        self.assertEqual(book.author, "Terhi Testaaja") 

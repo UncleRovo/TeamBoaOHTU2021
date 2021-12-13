@@ -63,3 +63,17 @@ class TestArticle(unittest.TestCase):
     def test_search_video_by_word_returns_right_information(self):
         searched_videos = videos.search("cute", 1)
         self.assertEqual(searched_videos[0].channel, "Rufus")
+
+    def test_update_video(self):
+        videos.add_new_video("testivideo", "Tepon testikanava", "www.testitube.com", 1, [])
+        sql = "SELECT id FROM video WHERE channel='Tepon testikanava'"
+        result = db.session.execute(sql)
+        id = result.fetchone().id
+        attributes = {"title": "testivideo",
+                      "channel": "Terhin testikanava",
+                      "url": "www.testitube.com",
+                      "tag": ""}
+        videos.update(id, attributes)
+
+        video = videos.get_one(id)
+        self.assertEqual(video.channel, "Terhin testikanava") 
