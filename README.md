@@ -1,6 +1,8 @@
 # TeamBoaOHTU2021
 [Klikkaa tästä päästäksesi käyttämään sovellusta](https://lukuvinkki-boa.herokuapp.com/)
 
+Herkussa tietokanta on alustettu tyhjäksi. Tiimi on käyttänyt demoamiseen käyttäjätunnusta *TeamBoa* salasanalla *boa123*, joita voi käyttää halutessaan testailuun jo joillain lisätyillä vinkeillä.
+
 ---
 
 ![GitHub Actions](https://github.com/UncleRovo/TeamBoaOHTU2021/workflows/CI/badge.svg)
