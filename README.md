@@ -18,7 +18,7 @@
 - yksikkötestit ominaisuudelle tehty ja ne menevät paikallisesti läpi
 - GitHub Actionit menevät läpi (ehkä toisesta sprintistä lähtien?)
 - toimii user storyn sanallisen kuvauksen mukaisesti selaimessa Herokun kautta
-- testikattavuus 80 % - käyttöliittymää ei lasketa mukaan. Sprintistä 2 eteenpäin
+- testikattavuus 80 % - käyttöliittymää ja palvelutasoa ei lasketa mukaan. Sprintistä 2 eteenpäin
 
 ---
 [Sprint 3 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint3)
