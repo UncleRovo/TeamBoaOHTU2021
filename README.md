@@ -13,6 +13,8 @@ Herkussa tietokanta on alustettu tyhjäksi. Tiimi on käyttänyt demoamiseen kä
 
 [Sprint Backlogs also in Projects (Team use)](https://github.com/UncleRovo/TeamBoaOHTU2021/projects?query=is%3Aclosed)
 
+[Raportti](https://github.com/UncleRovo/TeamBoaOHTU2021/blob/main/documents/raportti_TeamBoa.pdf)
+
 ---
 
 ## Definition of Done:
