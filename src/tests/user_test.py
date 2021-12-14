@@ -1,17 +1,18 @@
 import unittest
 import user
-import app
-
 
 
 class TestUser(unittest.TestCase):
     def setUp(self):
         pass
 
-
-    def test_add_a_new_user_to_the_database(self):
+    def test_new_user_register_will_succeed(self):
         query = user.register("testi_tepponen", "1234qwerty")
         self.assertEqual(query, True)
+
+    def test_new_user_register_without_password_will_fail(self):
+        query = user.register("testi_tepponen", '')
+        self.assertEqual(query, False)
 
     def test_login_works(self):
         query = user.login("testi_tepponen", "1234qwerty", True)
