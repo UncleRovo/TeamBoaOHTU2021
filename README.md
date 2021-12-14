@@ -9,6 +9,8 @@
 
 [Product Backlog and Burndown Chart](https://helsinkifi-my.sharepoint.com/:x:/g/personal/karhelmi_ad_helsinki_fi/EUyjfZObbRtEktjglZIfjqkB4lAZh1uDpnCF3pvPSApGeQ?e=XD0BRH) (public)
 
+[Sprint Backlogs also in Projects (Team use)](https://github.com/UncleRovo/TeamBoaOHTU2021/projects?query=is%3Aclosed)
+
 ---
 
 ## Definition of Done:
