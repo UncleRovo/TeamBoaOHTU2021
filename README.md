@@ -23,7 +23,7 @@ Herkussa tietokanta on alustettu tyhjäksi. Tiimi on käyttänyt demoamiseen kä
 - testikattavuus 80 % - käyttöliittymää ja palvelutasoa ei lasketa mukaan. Sprintistä 2 eteenpäin
 
 ---
-[Sprint 3 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint3)
+[Sprint 3 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/final)
 
 [Sprint 2 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint2)
 
