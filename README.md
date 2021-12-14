@@ -21,6 +21,7 @@
 - testikattavuus 80 % - käyttöliittymää ei lasketa mukaan. Sprintistä 2 eteenpäin
 
 ---
+[Sprint 3 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint3)
 
 [Sprint 2 release](https://github.com/UncleRovo/TeamBoaOHTU2021/releases/tag/sprint2)
 
@@ -37,7 +38,9 @@ Tietokanta tulee alustaa ennen sovelluksen käyttöä käskyllä
 Jotta kirjautuminen ja rekisteröityminen toimisi, tulee sovelluksen juureen luoda tiedosto .env, jonka sisälle on määriteltävä haluamansa salainen avain, tyyliin
 `SECRET_KEY=haluamasisalainenmerkkijonotähän`.
 
-Tämän jälkeen voit käynnistää sovelluksen ajamalla komennon `poetry run invoke start`. 
+Tämän jälkeen voit käynnistää sovelluksen ajamalla komennon `poetry run invoke start`.
+
+Tietokannassa olevaa testikäyttäjää voi paikallisesti käyttää tunnuksella "Kasper123" ja salasanalla "Jesper123".
 
 ---
 
