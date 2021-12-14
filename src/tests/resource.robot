@@ -135,3 +135,7 @@ Set Isbn
 Set Doi
     [Arguments]  ${doi}
     Input Text  resource_id  ${doi}
+
+Set Tag
+    [Arguments]  ${tag}
+    Input Text  tag  ${tag}
